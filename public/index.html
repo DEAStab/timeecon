@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Time Economy — move while your agents run</title>
-<meta name="description" content="Time Economy is a movement layer for software engineers. It plugs in between your AI coding agent's prompting steps and turns the dead time while runs execute into movement — sized to each run, and it brings you back exactly when your agent needs you." />
+<title>Meanwhile — a latency copilot that makes the wait work</title>
+<meta name="description" content="Meanwhile is a latency copilot. Every time you prompt an AI there's a wait — Meanwhile fills it: a focused related read streams in beside your answer while a sharper follow-up quietly composes itself, so your next question is ready the moment the answer lands. Works right inside Claude.ai." />
 <meta name="theme-color" content="#F6F2EA" />
-<meta property="og:title" content="Time Economy — move while your agents run" />
-<meta property="og:description" content="The machine is working, so you don't have to sit still. A thin movement layer between your agent's prompting steps." />
+<meta property="og:title" content="Meanwhile — a latency copilot that makes the wait work" />
+<meta property="og:description" content="The model is thinking. Meanwhile, you're a step ahead. A relevant read and a smarter next question, delivered in the gap between asking and answering." />
 <meta property="og:type" content="website" />
 <!-- mark JS-on before first paint so reveal states only hide for capable clients -->
 <script>document.documentElement.classList.add('js');</script>
@@ -134,13 +134,13 @@
     background: linear-gradient(105deg, var(--plum) 10%, var(--green) 92%);
     -webkit-background-clip: text; background-clip: text; color: transparent;
   }
-  .sub { font-size: clamp(17px, 2.1vw, 20px); color: var(--ink-soft); max-width: 640px; margin: 0 auto 34px; }
+  .sub { font-size: clamp(17px, 2.1vw, 20px); color: var(--ink-soft); max-width: 660px; margin: 0 auto 34px; }
   .cta-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
   .hero-note { margin-top: 22px; font-size: 14px; color: var(--faint); }
 
   /* ===== scroll-assembled scene (centerpiece) ===== */
   .scene { padding: 40px 0 96px; }
-  .scene-cap { text-align: center; max-width: 560px; margin: 0 auto 34px; }
+  .scene-cap { text-align: center; max-width: 580px; margin: 0 auto 34px; }
   .scene-cap .sec-eyebrow { justify-content: center; }
   .scene-cap p { color: var(--ink-soft); font-size: 16px; }
   .scene-frame {
@@ -159,26 +159,34 @@
     transition: opacity .85s ease, transform .95s var(--ease);
   }
   .js .scene:not(.in) .scene-svg > g { opacity: 0; }
-  .js .scene:not(.in) .l-room    { transform: scale(1.05); }
-  .js .scene:not(.in) .l-window  { transform: translateX(34px); }
-  .js .scene:not(.in) .l-plant   { transform: translateY(34px) scale(.95); }
-  .js .scene:not(.in) .l-desk    { transform: translateY(46px); }
-  .js .scene:not(.in) .l-monitor { transform: translateY(54px) scale(.97); }
-  .js .scene:not(.in) .l-person  { transform: translateY(66px); }
-  .js .scene:not(.in) .l-nudge   { transform: translateY(-18px) scale(.88); }
-  .l-room    { transition-delay: 0s; }
-  .l-window  { transition-delay: .10s; }
-  .l-plant   { transition-delay: .20s; }
-  .l-desk    { transition-delay: .30s; }
-  .l-monitor { transition-delay: .42s; }
-  .l-person  { transition-delay: .54s; }
-  .l-nudge   { transition-delay: .9s; }
+  .js .scene:not(.in) .l-room      { transform: scale(1.05); }
+  .js .scene:not(.in) .l-window    { transform: translateX(34px); }
+  .js .scene:not(.in) .l-coworkers { transform: translateY(28px) scale(.97); }
+  .js .scene:not(.in) .l-plant     { transform: translateY(34px) scale(.95); }
+  .js .scene:not(.in) .l-desk      { transform: translateY(46px); }
+  .js .scene:not(.in) .l-monitor   { transform: translateY(54px) scale(.97); }
+  .js .scene:not(.in) .l-person    { transform: translateY(66px); }
+  .js .scene:not(.in) .l-nudge     { transform: translateY(-18px) scale(.88); }
+  .l-room      { transition-delay: 0s; }
+  .l-window    { transition-delay: .10s; }
+  .l-coworkers { transition-delay: .18s; }
+  .l-plant     { transition-delay: .26s; }
+  .l-desk      { transition-delay: .34s; }
+  .l-monitor   { transition-delay: .46s; }
+  .l-person    { transition-delay: .58s; }
+  .l-nudge     { transition-delay: .96s; }
   /* gentle life once assembled */
-  .scene.in .l-nudge { animation: bob 5s ease-in-out 1.6s infinite; }
+  .scene.in .l-nudge { animation: bob 5s ease-in-out 1.7s infinite; }
   @keyframes bob { 0%,100%{ transform: translateY(0); } 50%{ transform: translateY(-7px); } }
-  .run-bar { transform-box: fill-box; transform-origin: left center; }
-  .scene.in .run-bar { animation: run 6.5s ease-in-out 1.4s infinite; }
-  @keyframes run { 0%{ transform: scaleX(.04);} 80%{ transform: scaleX(1);} 100%{ transform: scaleX(1);} }
+  /* the model "thinking" beside the answer */
+  .scene.in .tdot { animation: think 1.3s ease-in-out infinite; }
+  .scene.in .tdot2 { animation-delay: .18s; }
+  .scene.in .tdot3 { animation-delay: .36s; }
+  @keyframes think { 0%,100%{ opacity:.25; } 50%{ opacity:1; } }
+  /* the related read streaming into the panel */
+  .stream { transform-box: fill-box; transform-origin: left center; }
+  .scene.in .stream { animation: stream 5.5s ease-in-out 1.4s infinite; }
+  @keyframes stream { 0%{ transform: scaleX(.05);} 70%{ transform: scaleX(1);} 100%{ transform: scaleX(1);} }
 
   /* sections */
   section { padding: 92px 0; }
@@ -189,7 +197,7 @@
   }
   .sec-eyebrow::before { content:""; width: 22px; height: 1.5px; background: var(--plum-soft); display:inline-block; }
   h2 { font-size: clamp(30px, 4.4vw, 48px); letter-spacing: -0.02em; margin-bottom: 18px; }
-  .lead { color: var(--ink-soft); font-size: 18px; max-width: 660px; }
+  .lead { color: var(--ink-soft); font-size: 18px; max-width: 680px; }
   .lead + .lead { margin-top: 18px; }
   .center { text-align: center; }
   .center .sec-eyebrow { justify-content: center; }
@@ -204,9 +212,11 @@
   }
   .feature:hover { transform: translateY(-4px); border-color: var(--green-soft); box-shadow: 0 22px 44px -28px rgba(64,48,40,0.35); }
   .feature .ic {
-    width: 50px; height: 50px; border-radius: 14px; display: grid; place-items: center; font-size: 23px;
+    width: 50px; height: 50px; border-radius: 14px; display: grid; place-items: center;
     background: var(--green-tint); border: 1px solid var(--line); margin-bottom: 20px;
+    color: var(--green-deep);
   }
+  .feature .ic svg { width: 24px; height: 24px; }
   .feature .kicker { font-size: 12.5px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--green-deep); margin-bottom: 10px; }
   .feature h3 { font-size: 22px; margin-bottom: 9px; }
   .feature p { color: var(--ink-soft); font-size: 15.5px; }
@@ -239,7 +249,7 @@
     border: 1px solid var(--line);
   }
   .band h2 { margin-bottom: 14px; }
-  .band p { color: var(--ink-soft); max-width: 520px; margin: 0 auto 30px; font-size: 17px; }
+  .band p { color: var(--ink-soft); max-width: 540px; margin: 0 auto 30px; font-size: 17px; }
 
   /* footer */
   footer { border-top: 1px solid var(--line); padding: 48px 0; color: var(--faint); }
@@ -291,13 +301,13 @@
 
 <header>
   <div class="wrap nav">
-    <a href="#top" class="brand" aria-label="Time Economy home">
-      <span class="mark" aria-hidden="true"><i></i><i></i></span> Time Economy
+    <a href="#top" class="brand" aria-label="Meanwhile home">
+      <span class="mark" aria-hidden="true"><i></i><i></i></span> Meanwhile
     </a>
     <nav class="nav-links" aria-label="Primary">
-      <a href="#why">The dead time</a>
+      <a href="#why">The wait</a>
       <a href="#how">How it works</a>
-      <a href="#product">The product</a>
+      <a href="#product">Under the hood</a>
       <a href="#start" class="btn btn-primary">Get early access</a>
     </nav>
   </div>
@@ -306,28 +316,28 @@
 <main id="main">
   <section class="hero" aria-labelledby="hero-h">
     <div class="wrap">
-      <span class="eyebrow"><span class="leaf" aria-hidden="true"></span> A movement layer for engineers who build with agents</span>
-      <h1 id="hero-h">The machine is working.<br /><span class="accent">So you don't have to sit still.</span></h1>
-      <p class="sub">Time Economy slots in between your coding agent's prompting steps. The minute a run starts, it hands the dead time back to your body — a stretch, a walk, a breath — then brings you back the moment the agent needs you.</p>
+      <span class="eyebrow"><span class="leaf" aria-hidden="true"></span> A latency copilot for everyone who works with AI</span>
+      <h1 id="hero-h">The model is thinking.<br /><span class="accent">Meanwhile, you're a step ahead.</span></h1>
+      <p class="sub">Every prompt opens a gap — a few seconds of spinner while the model thinks. Meanwhile fills it: a focused, related read streams in beside your answer while a sharper follow-up quietly composes itself — so the second your answer lands, your next question is ready to fire.</p>
       <div class="cta-row">
         <a href="#start" class="btn btn-primary">Request early access →</a>
         <a href="#how" class="btn btn-ghost">See how it works</a>
       </div>
-      <p class="hero-note">No gym. No streaks. No extra tabs — just movement, timed to your agents.</p>
+      <p class="hero-note">Built to live right inside Claude.ai — your answer stays native; Meanwhile just makes the wait count.</p>
     </div>
   </section>
 
-  <!-- centerpiece: scroll-assembled over-the-shoulder scene -->
+  <!-- centerpiece: scroll-assembled over-the-shoulder office scene -->
   <section class="scene" aria-labelledby="scene-h">
     <div class="wrap">
       <div class="scene-cap reveal">
-        <div class="sec-eyebrow" id="scene-h">A day in the Time Economy</div>
-        <p>While <em>migrate-test-suite</em> runs for six minutes, you're already on your feet — and back at the keyboard the instant the diff lands.</p>
+        <div class="sec-eyebrow" id="scene-h">Inside the wait</div>
+        <p>While the model writes the main answer, Meanwhile docks beside it — streaming the context you'd have looked up next, and staging a sharper follow-up that's ready to send.</p>
       </div>
       <div class="scene-frame">
         <svg class="scene-svg" viewBox="0 0 1000 700" role="img" aria-labelledby="sceneTitle sceneDesc" preserveAspectRatio="xMidYMid slice">
-          <title id="sceneTitle">An engineer at a sunlit desk, seen from behind, invited to move while their agent runs</title>
-          <desc id="sceneDesc">Over-the-shoulder illustration of a software engineer seated at a monitor in a bright, plant-filled office in soft plum-pink and light-green tones. A floating card invites them to take a five-minute walk while their coding agent runs.</desc>
+          <title id="sceneTitle">An engineer using Meanwhile in an open software office, seen over the shoulder</title>
+          <desc id="sceneDesc">Over-the-shoulder illustration of a software engineer at a sunlit desk in an open-plan office with other engineers working nearby, in soft plum-pink and light-green tones. On the monitor, a chat answer streams on the left while a docked Meanwhile panel on the right shows a related read and one-tap follow-up questions.</desc>
           <defs>
             <linearGradient id="glass" x1="0" y1="0" x2="0" y2="1">
               <stop offset="0" stop-color="#FBF8F1"/>
@@ -357,6 +367,30 @@
             <rect x="676" y="226" width="238" height="8" fill="#FBF8F1"/>
           </g>
 
+          <!-- coworkers: other engineers at desks in the open office -->
+          <g class="l-coworkers">
+            <!-- coworker A (front-left) -->
+            <path d="M119 378 q0 -46 36 -46 q36 0 36 46 Z" fill="#88708B"/>
+            <circle cx="155" cy="300" r="21" fill="#C9A98D"/>
+            <path d="M134 297 a21 21 0 0 1 42 0 q-21 -9 -42 0Z" fill="#6E5A48"/>
+            <ellipse cx="150" cy="404" rx="94" ry="9" fill="#000" opacity="0.04"/>
+            <rect x="62" y="372" width="176" height="12" rx="4" fill="#CBB99C"/>
+            <rect x="118" y="320" width="74" height="48" rx="6" fill="#D9CDB6"/>
+            <rect x="126" y="328" width="58" height="32" rx="3" fill="#EFE7D8"/>
+            <rect x="148" y="366" width="14" height="8" fill="#C7B79D"/>
+
+            <!-- coworker B (further back, partly behind the foreground desk) -->
+            <g opacity="0.86">
+              <path d="M246 350 q0 -38 30 -38 q30 0 30 38 Z" fill="#7E956A"/>
+              <circle cx="276" cy="280" r="17" fill="#C9A98D"/>
+              <path d="M259 277 a17 17 0 0 1 34 0 q-17 -7 -34 0Z" fill="#574231"/>
+              <rect x="214" y="346" width="118" height="10" rx="4" fill="#C7B59A"/>
+              <rect x="250" y="302" width="60" height="40" rx="5" fill="#D4C7B0"/>
+              <rect x="257" y="308" width="46" height="26" rx="3" fill="#EBE2D2"/>
+              <rect x="274" y="340" width="12" height="7" fill="#C2B196"/>
+            </g>
+          </g>
+
           <!-- plant -->
           <g class="l-plant">
             <path d="M566 470 h66 l-9 78 h-48 z" fill="#C79B82"/>
@@ -381,7 +415,7 @@
             <ellipse cx="668" cy="404" rx="20" ry="5" fill="#E6EDDA"/>
           </g>
 
-          <!-- monitor + screen UI -->
+          <!-- monitor + Meanwhile screen UI -->
           <g class="l-monitor">
             <ellipse cx="480" cy="452" rx="120" ry="12" fill="#000" opacity="0.05"/>
             <rect x="460" y="430" width="40" height="22" fill="#CFC2AC"/>
@@ -392,17 +426,35 @@
             <circle cx="334" cy="278" r="4" fill="#D9AFC3"/>
             <circle cx="348" cy="278" r="4" fill="#AFC598"/>
             <circle cx="362" cy="278" r="4" fill="#DBCFBA"/>
-            <!-- faint code -->
-            <rect x="332" y="298" width="150" height="8" rx="4" fill="#D9AFC3" opacity="0.55"/>
-            <rect x="332" y="314" width="96"  height="8" rx="4" fill="#AFC598" opacity="0.55"/>
-            <rect x="332" y="330" width="128" height="8" rx="4" fill="#DBCFBA" opacity="0.7"/>
-            <rect x="332" y="346" width="72"  height="8" rx="4" fill="#D9AFC3" opacity="0.45"/>
-            <!-- running pill -->
-            <rect x="332" y="372" width="276" height="44" rx="11" fill="#E6EDDA"/>
-            <circle cx="352" cy="394" r="6" fill="#6F8C57"/>
-            <text x="368" y="390" font-family="'General Sans',sans-serif" font-size="12.5" font-weight="500" fill="#566E43">agent running · ~6 min</text>
-            <rect x="368" y="400" width="220" height="6" rx="3" fill="#CFE0BC"/>
-            <rect class="run-bar" x="368" y="400" width="220" height="6" rx="3" fill="#6F8C57"/>
+
+            <!-- ===== chat (left): your prompt + the answer streaming ===== -->
+            <rect x="372" y="294" width="124" height="18" rx="9" fill="#D9AFC3"/>
+            <!-- model "thinking" dots -->
+            <circle class="tdot"        cx="334" cy="334" r="3.4" fill="#B98FAD"/>
+            <circle class="tdot tdot2"  cx="346" cy="334" r="3.4" fill="#B98FAD"/>
+            <circle class="tdot tdot3"  cx="358" cy="334" r="3.4" fill="#B98FAD"/>
+            <!-- answer streaming in -->
+            <rect x="332" y="350" width="150" height="7" rx="3.5" fill="#E2D9C8"/>
+            <rect x="332" y="364" width="120" height="7" rx="3.5" fill="#E2D9C8"/>
+            <rect x="332" y="378" width="138" height="7" rx="3.5" fill="#E2D9C8"/>
+            <rect x="332" y="392" width="92"  height="7" rx="3.5" fill="#E2D9C8"/>
+
+            <!-- ===== Meanwhile panel (right): related read + prep questions ===== -->
+            <rect x="510" y="262" width="130" height="164" fill="#E6EDDA"/>
+            <path d="M510 262 V426" stroke="#CFE0BC" stroke-width="2"/>
+            <circle cx="524" cy="284" r="5" fill="#6F8C57"/>
+            <text x="536" y="288" font-family="'General Sans',sans-serif" font-size="11.5" font-weight="600" fill="#566E43">Meanwhile</text>
+            <!-- related read (top line streams in) -->
+            <rect x="524" y="302" width="100" height="6" rx="3" fill="#CFE0BC"/>
+            <rect class="stream" x="524" y="302" width="100" height="6" rx="3" fill="#9DB87E"/>
+            <rect x="524" y="316" width="84" height="6" rx="3" fill="#C4D7AC"/>
+            <rect x="524" y="330" width="94" height="6" rx="3" fill="#C4D7AC"/>
+            <rect x="524" y="344" width="72" height="6" rx="3" fill="#C4D7AC"/>
+            <!-- one-tap prep questions -->
+            <rect x="524" y="362" width="104" height="22" rx="11" fill="#FBF8F1" stroke="#AFC598"/>
+            <text x="534" y="377" font-family="'General Sans',sans-serif" font-size="10" font-weight="500" fill="#566E43">How does it scale?</text>
+            <rect x="524" y="390" width="104" height="22" rx="11" fill="#FBF8F1" stroke="#AFC598"/>
+            <text x="534" y="405" font-family="'General Sans',sans-serif" font-size="10" font-weight="500" fill="#566E43">What about cost?</text>
           </g>
 
           <!-- person (over-the-shoulder) -->
@@ -426,18 +478,15 @@
             <rect x="506" y="516" width="22" height="46" rx="10" fill="#6F8C57"/>
           </g>
 
-          <!-- floating movement nudge -->
+          <!-- floating Meanwhile callout: the sharper follow-up, staged -->
           <g class="l-nudge">
-            <rect x="104" y="150" width="266" height="126" rx="20" fill="#FBF8F1" stroke="#E6DDCD"/>
-            <rect x="104" y="150" width="266" height="126" rx="20" fill="none" stroke="#000" stroke-opacity="0.03"/>
-            <circle cx="334" cy="186" r="22" fill="#E6EDDA"/>
-            <!-- walking glyph -->
-            <circle cx="334" cy="176" r="4.5" fill="#566E43"/>
-            <path d="M334 182 l0 14 M334 188 l-9 9 M334 188 l9 6 M334 196 l-7 12 M334 196 l8 11" stroke="#566E43" stroke-width="3" stroke-linecap="round" fill="none"/>
-            <text x="126" y="184" font-family="'General Sans',sans-serif" font-size="12.5" font-weight="500" fill="#837A69">migrate-test-suite</text>
-            <text x="126" y="214" font-family="'Fraunces',serif" font-size="23" fill="#2C271F">Time to move</text>
-            <rect x="126" y="230" width="160" height="32" rx="16" fill="#9C5C7C"/>
-            <text x="146" y="251" font-family="'General Sans',sans-serif" font-size="13" font-weight="600" fill="#FCFAF4">Start a 5-min walk</text>
+            <rect x="104" y="150" width="266" height="128" rx="20" fill="#FBF8F1" stroke="#E6DDCD"/>
+            <rect x="104" y="150" width="266" height="128" rx="20" fill="none" stroke="#000" stroke-opacity="0.03"/>
+            <circle cx="128" cy="182" r="6" fill="#6F8C57"/>
+            <text x="142" y="186" font-family="'General Sans',sans-serif" font-size="12" font-weight="600" fill="#566E43">Meanwhile</text>
+            <text x="124" y="219" font-family="'Fraunces',serif" font-size="22" fill="#2C271F">Next question, ready</text>
+            <rect x="124" y="232" width="222" height="32" rx="16" fill="#9C5C7C"/>
+            <text x="140" y="253" font-family="'General Sans',sans-serif" font-size="12" font-weight="600" fill="#FCFAF4">Fire the sharper follow-up →</text>
           </g>
         </svg>
       </div>
@@ -447,50 +496,62 @@
   <section id="why" class="alt" aria-labelledby="why-h">
     <div class="wrap center">
       <div class="sec-eyebrow">The dead time</div>
-      <h2 id="why-h">Agentic coding gave you your hours back — sitting down.</h2>
-      <p class="lead">You write a prompt and the agent works for three, six, twelve minutes. So you wait. You watch the spinner, or you reach for another tab. Multiply that across a day and it's <em>hours</em> of new, sedentary in-between time — the cost of the machine's productivity, quietly paid by your body.</p>
-      <p class="lead">Time Economy treats that in-between as the most reclaimable part of your day. Not rest, not distraction — movement, sized precisely to how long your agent will run.</p>
+      <h2 id="why-h">Every wait is a little pool of wasted attention.</h2>
+      <p class="lead">You hit send, and the spinner spins — a few seconds, every single time. On its own it's nothing. But multiply it across every prompt, every day, across millions of interactions, and it becomes an ocean of idle, intelligent attention quietly draining into a loading animation.</p>
+      <p class="lead">Meanwhile treats that gap as the most reclaimable moment you have. Not empty time to tolerate — the opening move of a better conversation.</p>
     </div>
   </section>
 
   <section id="how" aria-labelledby="how-h">
     <div class="wrap">
       <div class="sec-eyebrow">How it works</div>
-      <h2 id="how-h">It turns every agent run into a reason to move.</h2>
-      <p class="lead">Three things happen automatically, in the gap you used to waste — no timers to set, nothing to remember.</p>
+      <h2 id="how-h">The moment you hit send, Meanwhile gets to work too.</h2>
+      <p class="lead">It fires a second, fast plan in parallel with your main answer — and turns the wait into two kinds of momentum, with nothing for you to set up.</p>
       <div class="features">
         <div class="feature reveal">
-          <div class="ic" aria-hidden="true">🔌</div>
+          <div class="ic" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg>
+          </div>
           <div class="kicker">Step 01</div>
-          <h3>Hooks into the loop</h3>
-          <p>It plugs in between your agent's prompting steps. The instant a run starts, Time Economy knows — no buttons, no babysitting.</p>
+          <h3>Fires in parallel</h3>
+          <p>The instant you send a prompt, Meanwhile launches a second, fast plan alongside your main answer — so the wait is already working before the spinner finishes its first turn.</p>
         </div>
         <div class="feature reveal">
-          <div class="ic" aria-hidden="true">🚶</div>
+          <div class="ic" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M14 4v16"/><path d="M6.5 9h4"/><path d="M6.5 12.5h4"/></svg>
+          </div>
           <div class="kicker">Step 02</div>
-          <h3>Sizes the break to the run</h3>
-          <p>A quick four-minute run earns a stretch at your desk; a twelve-minute migration earns a real walk. The movement always fits the window.</p>
+          <h3>Streams a related read</h3>
+          <p>A focused, adjacent read appears in a side panel — the background you'd look up next, the consideration you hadn't framed, the obvious objection to your own question. Not a generic "did you know."</p>
         </div>
         <div class="feature reveal">
-          <div class="ic" aria-hidden="true">↩️</div>
+          <div class="ic" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11.5a7.5 7.5 0 0 1-10.6 6.84L4 20l1.66-5.4A7.5 7.5 0 1 1 20 11.5z"/><path d="M9.5 11.5h5"/></svg>
+          </div>
           <div class="kicker">Step 03</div>
-          <h3>Brings you back on time</h3>
-          <p>It returns you to the keyboard the second your agent needs a review or the next prompt — so moving never costs you a beat of progress.</p>
+          <h3>Stages your next question</h3>
+          <p>A few one-tap prep questions compose a sharper follow-up as you answer them — so by the time your main answer lands, your next, better question is already written and ready to fire.</p>
         </div>
         <div class="feature reveal">
-          <div class="ic" aria-hidden="true">🌿</div>
-          <h3>Movement, not notifications</h3>
-          <p>Calm, embodied prompts — mobility, posture, a short walk. No buzzing badges, no guilt, no leaderboard to keep.</p>
+          <div class="ic" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h12"/><path d="M13 5l3 3-3 3"/><path d="M20 16H8"/><path d="M11 13l-3 3 3 3"/></svg>
+          </div>
+          <h3>Provider-agnostic</h3>
+          <p>Your main answer streams from whatever model you already use. Meanwhile runs the wait-plan on a separate, fast model — it sits beside your stack, it doesn't replace it.</p>
         </div>
         <div class="feature reveal">
-          <div class="ic" aria-hidden="true">🎯</div>
-          <h3>Respects deep work</h3>
-          <p>When you're truly in flow, it stays quiet. It fills the dead time between runs; it never interrupts the live work.</p>
+          <div class="ic" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V12"/><path d="M10 20V5"/><path d="M16 20v-6"/><path d="M3.5 20h17"/></svg>
+          </div>
+          <h3>Measured, not guessed</h3>
+          <p>An evaluation harness scores how relevant each read and question is — against the very same prompts the live app runs. Any improvement you can measure is, by construction, the one that ships.</p>
         </div>
         <div class="feature reveal">
-          <div class="ic" aria-hidden="true">📈</div>
-          <h3>Kind, quiet tracking</h3>
-          <p>Active minutes and standing time per ship, shown gently. Progress you can feel — not a streak you can break.</p>
+          <div class="ic" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3v5"/><path d="M15 3v5"/><path d="M7 8h10v3a5 5 0 0 1-10 0z"/><path d="M12 16v5"/></svg>
+          </div>
+          <h3>Lives where you work</h3>
+          <p>A standalone web app shows the full experience — and a Chrome extension docks Meanwhile right inside Claude.ai, in an isolated card that never interferes with the page.</p>
         </div>
       </div>
     </div>
@@ -498,36 +559,36 @@
 
   <section class="quote" aria-label="Quotation">
     <div class="wrap">
-      <blockquote>The machine doesn't need you to watch it run. <span class="hl">Your body needs you to move while it does.</span></blockquote>
-      <cite>— the Time Economy field guide</cite>
+      <blockquote>The wait isn't empty time to tolerate. <span class="hl">It's the first half of the conversation.</span></blockquote>
+      <cite>— the idea behind Meanwhile</cite>
     </div>
   </section>
 
   <section id="product" class="alt" aria-labelledby="product-h">
     <div class="wrap">
-      <div class="sec-eyebrow">The product</div>
-      <h2 id="product-h">A thin layer between your prompts — and your chair.</h2>
-      <p class="lead">Time Economy lives inside the agent workflow you already have. It watches the run, not you.</p>
+      <div class="sec-eyebrow">Under the hood</div>
+      <h2 id="product-h">Deliberately small. Provider-agnostic. Measured.</h2>
+      <p class="lead">Meanwhile lives in the workflow you already have. The value is decided by a single file of prompts — and proven by the same prompts in evaluation.</p>
       <div class="jobs">
         <div class="job reveal">
           <div class="n">01</div>
-          <h3>Sits in the agent loop</h3>
-          <p>Plugs in between prompting steps in the agents you already use, reading only when a run begins and ends. Your code never leaves your machine.</p>
+          <h3>One file of prompts is the source of truth</h3>
+          <p>Everything the model is told lives in one place. Change the value the product delivers by changing the prompts — no sprawling, hidden logic to reason about.</p>
         </div>
         <div class="job reveal">
           <div class="n">02</div>
-          <h3>Private by design</h3>
-          <p>No repository access, no telemetry on your work. It needs the rhythm of your runs — not their contents — to do its job.</p>
+          <h3>Fast by design</h3>
+          <p>A fast, cheap model (Haiku) generates the wait-plan and the related read so they arrive almost instantly — filling the panel before you'd even reach for another tab.</p>
         </div>
         <div class="job reveal">
           <div class="n">03</div>
-          <h3>Built by engineers and physios</h3>
-          <p>Movement designed for desk bodies — wrists, neck, hips, posture — by people who understand both the codebase and the spine.</p>
+          <h3>An eval harness keeps it honest</h3>
+          <p>Relevance is scored against the exact prompts the live app uses, so what improves in evaluation is precisely what improves in production. No drift between the test and the thing you ship.</p>
         </div>
         <div class="job reveal">
           <div class="n">04</div>
-          <h3>Yours to tune</h3>
-          <p>Set the intensity, the kinds of movement, and your quiet hours. It adapts to your day — not the other way around.</p>
+          <h3>Two ways to run it</h3>
+          <p>A full standalone web app that demonstrates the experience end to end — and a market-ready Chrome extension that injects Meanwhile into Claude.ai via an isolated shadow-DOM card.</p>
         </div>
       </div>
     </div>
@@ -536,9 +597,9 @@
   <section id="start" aria-labelledby="start-h">
     <div class="wrap">
       <div class="band reveal">
-        <h2 id="start-h">Stop watching the spinner. Start moving.</h2>
-        <p>Join the early-access list and be first in when Time Economy opens up.</p>
-        <a href="mailto:hello@nomorewatching.com?subject=Time%20Economy%20early%20access" class="btn btn-primary">Request early access →</a>
+        <h2 id="start-h">Stop watching the spinner. Start the next question.</h2>
+        <p>Join the early-access list and be first in when Meanwhile opens up — web app and Chrome extension.</p>
+        <a href="mailto:hello@nomorewatching.com?subject=Meanwhile%20early%20access" class="btn btn-primary">Request early access →</a>
       </div>
     </div>
   </section>
@@ -546,11 +607,11 @@
 
 <footer>
   <div class="wrap foot">
-    <div>© 2026 Time Economy · movement for people who build with machines</div>
+    <div>© 2026 Meanwhile · a latency copilot · made by Time Economy</div>
     <nav style="display:flex; gap:24px;" aria-label="Footer">
-      <a href="#why">The dead time</a>
+      <a href="#why">The wait</a>
       <a href="#how">How it works</a>
-      <a href="#product">The product</a>
+      <a href="#product">Under the hood</a>
       <a href="mailto:hello@nomorewatching.com">Contact</a>
     </nav>
   </div>
