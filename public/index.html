@@ -11,8 +11,9 @@
 <meta property="og:type" content="website" />
 <!-- mark JS-on before first paint so reveal states only hide for capable clients -->
 <script>document.documentElement.classList.add('js');</script>
-<link rel="preconnect" href="https://api.fontshare.com" crossorigin />
-<link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=satoshi@300,400,500,700&display=swap" rel="stylesheet" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 <style>
   :root {
     /* warm, earthy, climate-tech palette */
@@ -36,8 +37,8 @@
     --green-soft:#AFC598;
     --green-tint:#E6EDDA;
 
-    --display: 'Clash Display', 'Satoshi', system-ui, -apple-system, sans-serif;
-    --body: 'Satoshi', 'Inter', system-ui, -apple-system, sans-serif;
+    --display: 'Bricolage Grotesque', 'Hanken Grotesk', system-ui, sans-serif;
+    --body: 'Hanken Grotesk', system-ui, -apple-system, sans-serif;
 
     --radius: 20px;
     --max: 1120px;
@@ -51,7 +52,7 @@
     color: var(--ink);
     font-family: var(--body);
     font-size: 17px;
-    line-height: 1.65;
+    line-height: 1.6;
     font-weight: 400;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
@@ -59,17 +60,15 @@
   }
   h1, h2, h3, .display {
     font-family: var(--display);
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: -0.02em;
-    line-height: 1.04;
+    line-height: 1.05;
     color: var(--ink);
   }
   a { color: inherit; text-decoration: none; }
-  /* modern emphasis: no italics — color + weight instead */
-  em { font-style: normal; font-weight: 500; color: var(--plum-deep); }
+  em { font-style: normal; font-weight: 600; color: var(--plum-deep); }
   .wrap { max-width: var(--max); margin: 0 auto; padding: 0 28px; }
 
-  /* visible focus for keyboard users */
   :focus-visible { outline: 3px solid var(--plum); outline-offset: 3px; border-radius: 4px; }
 
   .skip {
@@ -79,7 +78,6 @@
   }
   .skip:focus { top: 14px; }
 
-  /* soft organic backdrop */
   .field { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
   .field .blob { position: absolute; border-radius: 50%; filter: blur(60px); opacity: .55; }
   .blob-1 { width: 520px; height: 520px; left: -160px; top: -120px; background: radial-gradient(circle, var(--plum-tint), transparent 70%); }
@@ -87,7 +85,6 @@
   .blob-3 { width: 480px; height: 480px; left: 30%; bottom: -220px; background: radial-gradient(circle, var(--plum-tint), transparent 72%); opacity:.4; }
   main, header, footer { position: relative; z-index: 1; }
 
-  /* nav */
   header {
     position: sticky; top: 0; z-index: 50;
     backdrop-filter: blur(12px);
@@ -95,7 +92,7 @@
     border-bottom: 1px solid var(--line);
   }
   .nav { display: flex; align-items: center; justify-content: space-between; height: 74px; }
-  .brand { display: flex; align-items: center; gap: 11px; font-family: var(--display); font-size: 22px; font-weight: 600; letter-spacing: -0.02em; }
+  .brand { display: flex; align-items: center; gap: 11px; font-family: var(--display); font-size: 22px; font-weight: 700; letter-spacing: -0.02em; }
   .brand .mark { position: relative; width: 28px; height: 18px; flex-shrink: 0; }
   .brand .mark i { position: absolute; top: 0; width: 18px; height: 18px; border-radius: 50%; display: block; }
   .brand .mark i:first-child { left: 0; background: var(--plum-soft); }
@@ -116,18 +113,17 @@
   .btn-ghost:hover { background: var(--card-2); border-color: var(--plum-soft); }
   @media (max-width: 760px){ .nav-links a:not(.btn){ display:none; } }
 
-  /* hero */
-  .hero { padding: 108px 0 60px; text-align: center; }
+  .hero { padding: 108px 0 56px; text-align: center; }
   .eyebrow {
     display: inline-flex; align-items: center; gap: 9px;
-    font-size: 13.5px; color: var(--green-deep); font-weight: 500; letter-spacing: 0.01em;
+    font-size: 13.5px; color: var(--green-deep); font-weight: 600; letter-spacing: 0.01em;
     border: 1px solid var(--line-2); background: var(--card);
     padding: 7px 15px; border-radius: 999px; margin-bottom: 30px;
   }
   .eyebrow .leaf { width: 8px; height: 8px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 0 rgba(111,140,87,0.6); animation: pulse 2.4s infinite; }
   @keyframes pulse { 0%{ box-shadow:0 0 0 0 rgba(111,140,87,0.5);} 70%{ box-shadow:0 0 0 9px rgba(111,140,87,0);} 100%{ box-shadow:0 0 0 0 rgba(111,140,87,0);} }
 
-  h1 { font-size: clamp(46px, 7.6vw, 88px); font-weight: 600; letter-spacing: -0.035em; line-height: 0.98; margin-bottom: 24px; }
+  h1 { font-size: clamp(46px, 7.6vw, 88px); font-weight: 800; letter-spacing: -0.035em; line-height: 0.98; margin-bottom: 24px; }
   h1 .accent {
     background: linear-gradient(105deg, var(--plum) 8%, var(--green) 94%);
     -webkit-background-clip: text; background-clip: text; color: transparent;
@@ -136,73 +132,81 @@
   .cta-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
   .hero-note { margin-top: 22px; font-size: 14px; color: var(--faint); }
 
-  /* ===== scroll-assembled scene (centerpiece) ===== */
-  .scene { padding: 40px 0 96px; }
-  .scene-cap { text-align: center; max-width: 580px; margin: 0 auto 34px; }
+  /* ===== product-mockup centerpiece ===== */
+  .scene { padding: 36px 0 96px; }
+  .scene-cap { text-align: center; max-width: 580px; margin: 0 auto 30px; }
   .scene-cap .sec-eyebrow { justify-content: center; }
   .scene-cap p { color: var(--ink-soft); font-size: 16px; }
-  .scene-frame {
-    position: relative; width: 100%; max-width: 980px; margin: 0 auto;
+  .stage {
+    position: relative; width: 100%; max-width: 1000px; margin: 0 auto;
     aspect-ratio: 1000 / 700;
-    border-radius: 28px; overflow: hidden;
-    background: var(--card-2);
+    border-radius: 30px; overflow: hidden;
     border: 1px solid var(--line);
+    background:
+      radial-gradient(120% 120% at 18% 8%, var(--plum-tint), transparent 52%),
+      radial-gradient(130% 130% at 92% 100%, var(--green-tint), transparent 52%),
+      linear-gradient(160deg, #FDFBF5, #F0E9DB);
     box-shadow: 0 50px 100px -45px rgba(58,44,34,0.5);
   }
-  .scene-svg { display: block; width: 100%; height: 100%; }
+  .scene-svg, .shot-svg { display: block; width: 100%; height: 100%; }
 
-  /* assemble: layers fade + settle in sequence when the scene enters view */
+  /* assemble: the mockup builds itself when it scrolls into view */
   .scene-svg > g {
     transform-box: fill-box; transform-origin: center;
-    transition: opacity .85s ease, transform .95s var(--ease);
+    transition: opacity .8s ease, transform .9s var(--ease);
   }
   .js .scene:not(.in) .scene-svg > g { opacity: 0; }
-  .js .scene:not(.in) .l-room      { transform: scale(1.05); }
-  .js .scene:not(.in) .l-window    { transform: translateX(34px); }
-  .js .scene:not(.in) .l-coworkers { transform: translateY(28px) scale(.97); }
-  .js .scene:not(.in) .l-plant     { transform: translateY(34px) scale(.95); }
-  .js .scene:not(.in) .l-desk      { transform: translateY(46px); }
-  .js .scene:not(.in) .l-monitor   { transform: translateY(54px) scale(.97); }
-  .js .scene:not(.in) .l-person    { transform: translateY(66px); }
-  .js .scene:not(.in) .l-nudge     { transform: translateY(-18px) scale(.88); }
-  .l-room      { transition-delay: 0s; }
-  .l-window    { transition-delay: .10s; }
-  .l-coworkers { transition-delay: .18s; }
-  .l-plant     { transition-delay: .26s; }
-  .l-desk      { transition-delay: .34s; }
-  .l-monitor   { transition-delay: .46s; }
-  .l-person    { transition-delay: .58s; }
-  .l-nudge     { transition-delay: .96s; }
-  /* gentle life once assembled */
-  .scene.in .l-nudge { animation: bob 5s ease-in-out 1.7s infinite; }
-  @keyframes bob { 0%,100%{ transform: translateY(0); } 50%{ transform: translateY(-7px); } }
-  /* the model "thinking" beside the answer */
+  .js .scene:not(.in) .l-glow   { opacity: 0; }
+  .js .scene:not(.in) .l-frame  { transform: translateY(42px) scale(.97); }
+  .js .scene:not(.in) .l-chat   { transform: translateY(26px); }
+  .js .scene:not(.in) .l-panel  { transform: translateX(32px); }
+  .js .scene:not(.in) .l-card-a { transform: translateY(-20px) scale(.82); }
+  .js .scene:not(.in) .l-card-b { transform: translateY(22px) scale(.82); }
+  .l-glow   { transition-delay: 0s; }
+  .l-frame  { transition-delay: .06s; }
+  .l-chat   { transition-delay: .26s; }
+  .l-panel  { transition-delay: .42s; }
+  .l-card-a { transition-delay: .74s; }
+  .l-card-b { transition-delay: .88s; }
+  .scene.in .l-card-b { animation: bob 5.5s ease-in-out 1.9s infinite; }
+  .scene.in .l-card-a { animation: bob 6.5s ease-in-out 1.6s infinite reverse; }
+  @keyframes bob { 0%,100%{ transform: translateY(0); } 50%{ transform: translateY(-8px); } }
   .scene.in .tdot { animation: think 1.3s ease-in-out infinite; }
   .scene.in .tdot2 { animation-delay: .18s; }
   .scene.in .tdot3 { animation-delay: .36s; }
   @keyframes think { 0%,100%{ opacity:.25; } 50%{ opacity:1; } }
-  /* the related read streaming into the panel */
   .stream { transform-box: fill-box; transform-origin: left center; }
   .scene.in .stream { animation: stream 5.5s ease-in-out 1.4s infinite; }
   @keyframes stream { 0%{ transform: scaleX(.05);} 70%{ transform: scaleX(1);} 100%{ transform: scaleX(1);} }
 
-  /* sections */
+  /* ===== software showcase shot ===== */
+  .shot-frame {
+    position: relative; width: 100%; max-width: 760px; margin: 40px auto 0;
+    aspect-ratio: 900 / 540;
+    border-radius: 26px; overflow: hidden;
+    border: 1px solid var(--line);
+    background:
+      radial-gradient(120% 120% at 12% 0%, var(--green-tint), transparent 55%),
+      radial-gradient(120% 120% at 100% 100%, var(--plum-tint), transparent 55%),
+      linear-gradient(155deg, #FDFBF5, #F1EADD);
+    box-shadow: 0 40px 80px -40px rgba(58,44,34,0.45);
+  }
+
   section { padding: 92px 0; }
   .alt { background: var(--bg-2); border-block: 1px solid var(--line); }
   .sec-eyebrow {
     display:inline-flex; align-items:center; gap:9px;
-    color: var(--plum-deep); font-size: 12.5px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 16px;
+    color: var(--plum-deep); font-size: 12.5px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 16px;
     font-family: var(--body);
   }
   .sec-eyebrow::before { content:""; width: 22px; height: 1.5px; background: var(--plum-soft); display:inline-block; }
-  h2 { font-size: clamp(32px, 4.6vw, 52px); letter-spacing: -0.028em; margin-bottom: 18px; }
+  h2 { font-size: clamp(32px, 4.6vw, 52px); font-weight: 700; letter-spacing: -0.028em; margin-bottom: 18px; }
   .lead { color: var(--ink-soft); font-size: 18px; max-width: 680px; }
   .lead + .lead { margin-top: 18px; }
   .center { text-align: center; }
   .center .sec-eyebrow { justify-content: center; }
   .center .lead { margin: 0 auto; }
 
-  /* feature cards */
   .features { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; margin-top: 56px; }
   @media (max-width:880px){ .features{ grid-template-columns:1fr; } }
   .feature {
@@ -216,15 +220,14 @@
     color: var(--green-deep);
   }
   .feature .ic svg { width: 25px; height: 25px; }
-  .feature .kicker { font-size: 12.5px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--green-deep); margin-bottom: 10px; }
+  .feature .kicker { font-size: 12.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--green-deep); margin-bottom: 10px; }
   .feature h3 { font-size: 23px; margin-bottom: 9px; letter-spacing: -0.02em; }
   .feature p { color: var(--ink-soft); font-size: 15.5px; }
 
-  /* pull quote */
   .quote { text-align:center; border-block:1px solid var(--line); padding: 96px 0; }
   .quote blockquote {
-    font-family: var(--display); font-weight: 500;
-    font-size: clamp(28px, 4.2vw, 48px); line-height: 1.14; letter-spacing: -0.028em;
+    font-family: var(--display); font-weight: 600;
+    font-size: clamp(28px, 4.2vw, 48px); line-height: 1.12; letter-spacing: -0.028em;
     max-width: 900px; margin: 0 auto 20px; color: var(--ink);
   }
   .quote blockquote .hl {
@@ -233,15 +236,13 @@
   }
   .quote cite { color: var(--faint); font-style: normal; font-size: 14px; font-weight: 500; letter-spacing: 0.04em; }
 
-  /* product jobs */
   .jobs { display: grid; grid-template-columns: repeat(2,1fr); gap: 24px 48px; margin-top: 56px; }
   @media (max-width:780px){ .jobs{ grid-template-columns:1fr; } }
   .job { border-top: 1.5px solid var(--line-2); padding-top: 24px; }
-  .job .n { font-family: var(--display); font-weight: 600; color: var(--plum); font-size: 24px; margin-bottom: 12px; letter-spacing: -0.01em; }
+  .job .n { font-family: var(--display); font-weight: 700; color: var(--plum); font-size: 24px; margin-bottom: 12px; letter-spacing: -0.01em; }
   .job h3 { font-size: 23px; margin-bottom: 9px; letter-spacing: -0.02em; }
   .job p { color: var(--ink-soft); font-size: 15.5px; }
 
-  /* CTA band */
   .band {
     text-align: center; border-radius: 30px; padding: 78px 30px;
     background:
@@ -253,17 +254,14 @@
   .band h2 { margin-bottom: 14px; }
   .band p { color: var(--ink-soft); max-width: 540px; margin: 0 auto 30px; font-size: 17px; }
 
-  /* footer */
   footer { border-top: 1px solid var(--line); padding: 48px 0; color: var(--faint); }
   .foot { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 18px; font-size: 14.5px; }
   .foot a { color: var(--ink-soft); }
   .foot a:hover { color: var(--ink); }
 
-  /* generic reveal */
   .reveal { opacity: 0; transform: translateY(22px); transition: opacity .8s ease, transform .8s var(--ease); }
   .reveal.in { opacity: 1; transform: none; }
 
-  /* progressive enhancement: scroll-linked parallax on the backdrop blobs */
   @supports (animation-timeline: scroll()) {
     @media (prefers-reduced-motion: no-preference) {
       .blob-1 { animation: drift-up linear both; animation-timeline: scroll(root); }
@@ -274,7 +272,6 @@
   @keyframes drift-up   { to { transform: translateY(-120px); } }
   @keyframes drift-down { to { transform: translateY(90px); } }
 
-  /* respect reduced motion: no movement, everything in final state */
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     *, *::before, *::after {
@@ -286,7 +283,7 @@
 
   @media (max-width: 560px){
     .wrap { padding: 0 20px; }
-    .hero { padding: 76px 0 40px; }
+    .hero { padding: 76px 0 36px; }
     section { padding: 68px 0; }
     .feature, .band { padding: 26px; }
   }
@@ -329,198 +326,129 @@
     </div>
   </section>
 
-  <!-- centerpiece: scroll-assembled over-the-shoulder office scene -->
+  <!-- centerpiece: product mockup that assembles on scroll -->
   <section class="scene" aria-labelledby="scene-h">
     <div class="wrap">
       <div class="scene-cap reveal">
-        <div class="sec-eyebrow" id="scene-h">Inside the wait</div>
-        <p>While the model writes the main answer, Meanwhile docks beside it — streaming the context you'd have looked up next, and staging a sharper follow-up that's ready to send.</p>
+        <div class="sec-eyebrow" id="scene-h">Meanwhile, in Claude.ai</div>
+        <p>The answer streams on the left. On the right, Meanwhile fills the wait — a related read and a sharper follow-up, staged before the answer even lands.</p>
       </div>
-      <div class="scene-frame">
-        <svg class="scene-svg" viewBox="0 0 1000 700" role="img" aria-labelledby="sceneTitle sceneDesc" preserveAspectRatio="xMidYMid slice">
-          <title id="sceneTitle">An engineer using Meanwhile in an open software office, seen over the shoulder</title>
-          <desc id="sceneDesc">Over-the-shoulder illustration of a software engineer at a sunlit desk in an open-plan office with other engineers working nearby, in soft plum-pink and light-green tones. On the monitor, a chat answer streams on the left while a docked Meanwhile panel on the right shows a related read and one-tap follow-up questions.</desc>
+      <div class="stage">
+        <svg class="scene-svg" viewBox="0 0 1000 700" role="img" aria-labelledby="heroTitle heroDesc" preserveAspectRatio="xMidYMid meet">
+          <title id="heroTitle">The Meanwhile panel docked inside a Claude.ai chat</title>
+          <desc id="heroDesc">A browser window showing a Claude.ai conversation. The assistant's answer is streaming on the left while a docked Meanwhile panel on the right shows a streaming related read, one-tap follow-up question chips, and a staged sharper question ready to send. Two small cards float over the window reading "Wait reclaimed" and "Follow-up staged".</desc>
           <defs>
-            <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F1E9DA"/><stop offset="1" stop-color="#E4D7C1"/></linearGradient>
-            <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E7DAC3"/><stop offset="1" stop-color="#D5C4A6"/></linearGradient>
-            <linearGradient id="beam" x1="0.8" y1="0" x2="0.2" y2="1"><stop offset="0" stop-color="#FFFFFF" stop-opacity="0.55"/><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/></linearGradient>
-            <radialGradient id="glow" cx="0.48" cy="0.42" r="0.6"><stop offset="0" stop-color="#F4E4EB" stop-opacity="0.85"/><stop offset="1" stop-color="#F4E4EB" stop-opacity="0"/></radialGradient>
-            <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FDFBF5"/><stop offset="0.55" stop-color="#EAF0DE"/><stop offset="1" stop-color="#DBE7C7"/></linearGradient>
-            <radialGradient id="sun" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#FCF1D8"/><stop offset="1" stop-color="#FCF1D8" stop-opacity="0"/></radialGradient>
-            <linearGradient id="skin" x1="0.15" y1="0" x2="0.4" y2="1"><stop offset="0" stop-color="#E3C4A7"/><stop offset="1" stop-color="#C9A081"/></linearGradient>
-            <linearGradient id="hair" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7E6552"/><stop offset="1" stop-color="#564434"/></linearGradient>
-            <linearGradient id="shirt" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#B27B9B"/><stop offset="1" stop-color="#894D6A"/></linearGradient>
-            <linearGradient id="chair" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#D7C5AB"/><stop offset="1" stop-color="#B8A485"/></linearGradient>
-            <linearGradient id="deskG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#D8C5A6"/><stop offset="1" stop-color="#BCA785"/></linearGradient>
-            <linearGradient id="bezel" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ECE2CF"/><stop offset="1" stop-color="#D5C8AF"/></linearGradient>
-            <linearGradient id="screen" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#F4EFE4"/></linearGradient>
-            <linearGradient id="panelG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#EEF4E4"/><stop offset="1" stop-color="#DBE8C8"/></linearGradient>
-            <linearGradient id="userMsg" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#E1BACD"/><stop offset="1" stop-color="#CE96B3"/></linearGradient>
-            <linearGradient id="cardG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#FBF6EE"/></linearGradient>
-            <linearGradient id="cta" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A8678B"/><stop offset="1" stop-color="#7D4763"/></linearGradient>
-            <linearGradient id="plantA" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#6F8C57"/><stop offset="1" stop-color="#9DB87E"/></linearGradient>
-            <clipPath id="winClip"><rect x="676" y="96" width="238" height="268" rx="6"/></clipPath>
-            <clipPath id="screenClip"><rect x="316" y="260" width="328" height="168" rx="9"/></clipPath>
-            <filter id="soft" x="-25%" y="-25%" width="150%" height="150%"><feGaussianBlur stdDeviation="7"/></filter>
+            <filter id="soft" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="11"/></filter>
+            <radialGradient id="glowP" cx="0.2" cy="0.15" r="0.6"><stop offset="0" stop-color="#EBC9DB" stop-opacity="0.55"/><stop offset="1" stop-color="#EBC9DB" stop-opacity="0"/></radialGradient>
+            <radialGradient id="glowG" cx="0.9" cy="0.95" r="0.6"><stop offset="0" stop-color="#CADEB2" stop-opacity="0.5"/><stop offset="1" stop-color="#CADEB2" stop-opacity="0"/></radialGradient>
+            <linearGradient id="chrome" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F7F2E8"/><stop offset="1" stop-color="#F0E8D9"/></linearGradient>
+            <linearGradient id="userB" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A8678B"/><stop offset="1" stop-color="#854E6C"/></linearGradient>
+            <linearGradient id="panelBg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F7FBF0"/><stop offset="1" stop-color="#EEF5E2"/></linearGradient>
+            <linearGradient id="sendB" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#A8678B"/><stop offset="1" stop-color="#7D4763"/></linearGradient>
+            <clipPath id="winBody"><rect x="120" y="92" width="760" height="470" rx="20"/></clipPath>
           </defs>
 
-          <!-- room -->
-          <g class="l-room">
-            <rect x="0" y="0" width="1000" height="520" fill="url(#wall)"/>
-            <rect x="0" y="500" width="1000" height="200" fill="url(#floor)"/>
-            <rect x="0" y="497" width="1000" height="6" fill="#CCBA9C"/>
-            <ellipse cx="472" cy="300" rx="400" ry="270" fill="url(#glow)"/>
-            <polygon points="712,118 902,150 548,520 360,520" fill="url(#beam)" opacity="0.5"/>
+          <!-- ambient glow behind the window -->
+          <g class="l-glow">
+            <rect x="0" y="0" width="1000" height="700" fill="url(#glowP)"/>
+            <rect x="0" y="0" width="1000" height="700" fill="url(#glowG)"/>
           </g>
 
-          <!-- window + daylight -->
-          <g class="l-window">
-            <rect x="660" y="76" width="272" height="304" rx="12" fill="#F7F2E8"/>
-            <g clip-path="url(#winClip)">
-              <rect x="676" y="96" width="238" height="268" fill="url(#sky)"/>
-              <circle cx="858" cy="150" r="48" fill="url(#sun)"/>
-              <rect x="690" y="250" width="26" height="80" fill="#CFE0BC" opacity="0.5"/>
-              <rect x="724" y="272" width="20" height="58" fill="#CFE0BC" opacity="0.4"/>
-              <circle cx="744" cy="338" r="72" fill="#9FBA86" opacity="0.7"/>
-              <circle cx="858" cy="358" r="56" fill="#B6CDA0" opacity="0.75"/>
-              <circle cx="800" cy="302" r="40" fill="#C7DBB2" opacity="0.6"/>
-            </g>
-            <rect x="792" y="96" width="7" height="268" fill="#F7F2E8"/>
-            <rect x="676" y="222" width="238" height="7" fill="#F7F2E8"/>
-            <rect x="660" y="76" width="272" height="304" rx="12" fill="none" stroke="#E6DDCD" stroke-width="2"/>
-          </g>
-
-          <!-- coworkers: other engineers at desks in the open office -->
-          <g class="l-coworkers">
-            <!-- coworker A (front-left) -->
-            <path d="M119 378 q0 -46 36 -46 q36 0 36 46 Z" fill="#8A7290"/>
-            <circle cx="155" cy="300" r="21" fill="url(#skin)"/>
-            <path d="M134 297 a21 21 0 0 1 42 0 q-21 -9 -42 0Z" fill="#6E5A48"/>
-            <ellipse cx="150" cy="405" rx="98" ry="9" fill="#000" opacity="0.05"/>
-            <rect x="60" y="372" width="180" height="13" rx="5" fill="url(#deskG)"/>
-            <rect x="118" y="318" width="76" height="50" rx="7" fill="#D6CAB3"/>
-            <rect x="126" y="326" width="60" height="34" rx="4" fill="#EFE7D8"/>
-            <rect x="134" y="332" width="40" height="4" rx="2" fill="#C9D9B4"/>
-            <rect x="134" y="340" width="30" height="4" rx="2" fill="#E0CBD7"/>
-            <rect x="148" y="366" width="14" height="8" fill="#C7B79D"/>
-
-            <!-- coworker B (further back, partly behind the foreground desk) -->
-            <g opacity="0.78">
-              <path d="M246 350 q0 -38 30 -38 q30 0 30 38 Z" fill="#7E956A"/>
-              <circle cx="276" cy="280" r="17" fill="url(#skin)"/>
-              <path d="M259 277 a17 17 0 0 1 34 0 q-17 -7 -34 0Z" fill="#574231"/>
-              <rect x="214" y="346" width="120" height="11" rx="4" fill="#C9B79B"/>
-              <rect x="250" y="302" width="62" height="42" rx="6" fill="#D2C5AE"/>
-              <rect x="257" y="308" width="48" height="28" rx="3" fill="#EBE2D2"/>
-              <rect x="274" y="340" width="12" height="7" fill="#C2B196"/>
+          <!-- browser window -->
+          <g class="l-frame">
+            <rect x="118" y="106" width="764" height="476" rx="22" fill="#3a2c22" opacity="0.16" filter="url(#soft)"/>
+            <rect x="120" y="92" width="760" height="470" rx="20" fill="#FFFFFF" stroke="#E9E0D0"/>
+            <g clip-path="url(#winBody)">
+              <rect x="120" y="92" width="760" height="46" fill="url(#chrome)"/>
+              <rect x="120" y="137" width="760" height="1" fill="#E6DDCD"/>
+              <circle cx="146" cy="115" r="6" fill="#D9AFC3"/>
+              <circle cx="166" cy="115" r="6" fill="#AFC598"/>
+              <circle cx="186" cy="115" r="6" fill="#DBCFBA"/>
+              <rect x="360" y="103" width="280" height="24" rx="12" fill="#FFFFFF" stroke="#ECE3D2"/>
+              <path d="M452 116 v-3 a4 4 0 0 1 8 0 v3 z M450 116 h12 v7 h-12 z" fill="#B7AC98"/>
+              <text x="470" y="120" font-family="'Hanken Grotesk',sans-serif" font-size="12.5" fill="#8A8170">claude.ai</text>
+              <rect x="826" y="103" width="26" height="24" rx="7" fill="#E6EDDA" stroke="#D7E2C5"/>
+              <circle cx="835" cy="115" r="4" fill="#D9AFC3"/><circle cx="843" cy="115" r="4" fill="#9DB87E"/>
+              <!-- split: chat / panel -->
+              <rect x="620" y="138" width="260" height="424" fill="url(#panelBg)"/>
+              <rect x="620" y="138" width="1.5" height="424" fill="#E0E9CF"/>
             </g>
           </g>
 
-          <!-- plant -->
-          <g class="l-plant">
-            <path d="M566 470 h66 l-9 80 h-48 z" fill="#C99A80"/>
-            <path d="M566 470 h66 l-3 26 h-60 z" fill="#BD8C71"/>
-            <ellipse cx="599" cy="470" rx="33" ry="8" fill="#B98C73"/>
-            <path d="M599 470 C 556 402, 560 356, 596 326 C 614 366, 616 426, 599 470 Z" fill="url(#plantA)"/>
-            <path d="M599 470 C 632 410, 660 392, 666 352 C 632 360, 604 408, 599 470 Z" fill="#6F8C57"/>
-            <path d="M599 470 C 566 414, 540 398, 534 360 C 568 366, 596 412, 599 470 Z" fill="#88A56A"/>
-            <path d="M599 470 C 600 408, 596 372, 612 344 C 624 372, 620 426, 599 470 Z" fill="#9DB87E"/>
+          <!-- chat conversation (left) -->
+          <g class="l-chat">
+            <!-- user message -->
+            <rect x="300" y="162" width="296" height="40" rx="14" fill="url(#userB)"/>
+            <text x="318" y="187" font-family="'Hanken Grotesk',sans-serif" font-size="13.5" font-weight="500" fill="#FCFAF4">How should I shard a Postgres table?</text>
+            <!-- assistant -->
+            <circle cx="166" cy="244" r="12" fill="#E6EDDA" stroke="#D7E2C5"/>
+            <circle cx="166" cy="244" r="3.2" fill="#6F8C57"/>
+            <text x="190" y="240" font-family="'Hanken Grotesk',sans-serif" font-size="13.5" fill="#3a322a">Two main strategies — <tspan font-weight="600" fill="#221E18">range</tspan> and <tspan font-weight="600" fill="#221E18">hash</tspan></text>
+            <text x="190" y="260" font-family="'Hanken Grotesk',sans-serif" font-size="13.5" fill="#3a322a">sharding. Range keeps ordered scans fast,</text>
+            <rect x="190" y="274" width="372" height="8" rx="4" fill="#ECE3D3"/>
+            <rect x="190" y="290" width="340" height="8" rx="4" fill="#ECE3D3"/>
+            <rect x="190" y="306" width="368" height="8" rx="4" fill="#ECE3D3"/>
+            <rect x="190" y="322" width="210" height="8" rx="4" fill="#ECE3D3"/>
+            <!-- writing indicator -->
+            <circle class="tdot"       cx="190" cy="346" r="3.4" fill="#C49AB6"/>
+            <circle class="tdot tdot2" cx="202" cy="346" r="3.4" fill="#C49AB6"/>
+            <circle class="tdot tdot3" cx="214" cy="346" r="3.4" fill="#C49AB6"/>
+            <!-- composer -->
+            <rect x="152" y="498" width="436" height="40" rx="13" fill="#FBF7F0" stroke="#ECE3D2"/>
+            <text x="170" y="523" font-family="'Hanken Grotesk',sans-serif" font-size="13" fill="#B7AC98">Reply to Claude…</text>
+            <circle cx="566" cy="518" r="14" fill="#E7DFD2"/>
+            <path d="M560 518 h11 M566 513 l5 5 -5 5" stroke="#9A8F7C" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
           </g>
 
-          <!-- desk -->
-          <g class="l-desk">
-            <ellipse cx="500" cy="478" rx="386" ry="20" fill="#000" opacity="0.05"/>
-            <rect x="150" y="436" width="700" height="36" rx="13" fill="url(#deskG)"/>
-            <rect x="150" y="436" width="700" height="6" rx="3" fill="#E2D2B6" opacity="0.7"/>
-            <rect x="150" y="468" width="700" height="58" rx="6" fill="#B49F7D"/>
-            <!-- notebook -->
-            <rect x="206" y="410" width="96" height="28" rx="5" fill="#D9AFC3"/>
-            <rect x="206" y="410" width="96" height="9" rx="5" fill="#C99BB4"/>
-            <rect x="214" y="424" width="60" height="3" rx="1.5" fill="#C99BB4" opacity="0.7"/>
-            <!-- coffee -->
-            <rect x="650" y="402" width="42" height="36" rx="8" fill="#FBF8F1"/>
-            <path d="M692 410 h11 a10 10 0 0 1 0 20 h-11" fill="none" stroke="#E6DDCD" stroke-width="5"/>
-            <ellipse cx="671" cy="402" rx="21" ry="5" fill="#E6EDDA"/>
-            <path d="M666 393 q5 -8 0 -16 M676 393 q5 -8 0 -16" stroke="#D9CFBE" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <!-- Meanwhile panel (right) -->
+          <g class="l-panel">
+            <circle cx="648" cy="164" r="5.5" fill="#6F8C57"/>
+            <text x="662" y="169" font-family="'Hanken Grotesk',sans-serif" font-size="14" font-weight="700" fill="#566E43">Meanwhile</text>
+            <text x="828" y="168" text-anchor="end" font-family="'Hanken Grotesk',sans-serif" font-size="10.5" fill="#94A37F">while you wait</text>
+            <rect x="644" y="180" width="212" height="1" fill="#E0E9CF"/>
+
+            <text x="644" y="202" font-family="'Hanken Grotesk',sans-serif" font-size="10" font-weight="700" letter-spacing="1.2" fill="#7E9466">RELATED READ</text>
+            <rect x="644" y="210" width="212" height="108" rx="12" fill="#FFFFFF" stroke="#E7EEDB"/>
+            <text x="660" y="232" font-family="'Hanken Grotesk',sans-serif" font-size="12.5" font-weight="600" fill="#2c2820">Range vs. hash sharding</text>
+            <rect x="660" y="242" width="180" height="6" rx="3" fill="#D8E6C4"/>
+            <rect class="stream" x="660" y="242" width="180" height="6" rx="3" fill="#7E9C63"/>
+            <rect x="660" y="256" width="150" height="6" rx="3" fill="#E2E9D6"/>
+            <rect x="660" y="270" width="178" height="6" rx="3" fill="#E2E9D6"/>
+            <rect x="660" y="284" width="120" height="6" rx="3" fill="#E2E9D6"/>
+            <rect x="660" y="298" width="74" height="15" rx="7.5" fill="#E6EDDA"/>
+            <text x="668" y="309" font-family="'Hanken Grotesk',sans-serif" font-size="9" font-weight="600" fill="#566E43">2 min read</text>
+
+            <text x="644" y="346" font-family="'Hanken Grotesk',sans-serif" font-size="10" font-weight="700" letter-spacing="1.2" fill="#7E9466">PREPARE YOUR FOLLOW-UP</text>
+            <rect x="644" y="354" width="100" height="22" rx="11" fill="#E6EDDA" stroke="#AFC598"/>
+            <text x="655" y="369" font-family="'Hanken Grotesk',sans-serif" font-size="10" font-weight="600" fill="#566E43">Hot partitions?</text>
+            <rect x="750" y="354" width="106" height="22" rx="11" fill="#FFFFFF" stroke="#D7E2C5"/>
+            <text x="761" y="369" font-family="'Hanken Grotesk',sans-serif" font-size="10" font-weight="500" fill="#6E7D5A">Multi-region?</text>
+            <rect x="644" y="382" width="124" height="22" rx="11" fill="#FFFFFF" stroke="#D7E2C5"/>
+            <text x="655" y="397" font-family="'Hanken Grotesk',sans-serif" font-size="10" font-weight="500" fill="#6E7D5A">Backfill strategy?</text>
+
+            <rect x="644" y="414" width="212" height="84" rx="12" fill="#F6E6EE" stroke="#E2BBD0"/>
+            <text x="660" y="434" font-family="'Hanken Grotesk',sans-serif" font-size="9" font-weight="700" letter-spacing="0.8" fill="#7D4763">READY TO SEND</text>
+            <text x="660" y="452" font-family="'Hanken Grotesk',sans-serif" font-size="11.5" font-weight="500" fill="#2c2820">How do I avoid hot partitions</text>
+            <text x="660" y="467" font-family="'Hanken Grotesk',sans-serif" font-size="11.5" font-weight="500" fill="#2c2820">when sharding by tenant_id?</text>
+            <rect x="784" y="474" width="58" height="20" rx="10" fill="url(#sendB)"/>
+            <text x="797" y="488" font-family="'Hanken Grotesk',sans-serif" font-size="10" font-weight="600" fill="#FCFAF4">Send →</text>
           </g>
 
-          <!-- monitor + Meanwhile screen UI -->
-          <g class="l-monitor">
-            <rect x="306" y="256" width="360" height="200" rx="18" fill="#3a2c22" opacity="0.16" filter="url(#soft)"/>
-            <ellipse cx="480" cy="454" rx="122" ry="12" fill="#000" opacity="0.06"/>
-            <rect x="460" y="430" width="40" height="24" fill="#C7B9A1"/>
-            <rect x="418" y="448" width="124" height="12" rx="6" fill="#BBAC92"/>
-            <rect x="300" y="244" width="360" height="200" rx="18" fill="url(#bezel)"/>
-            <rect x="300" y="244" width="360" height="200" rx="18" fill="none" stroke="#E7DDCB" stroke-width="1.5"/>
-            <rect x="316" y="260" width="328" height="168" rx="9" fill="url(#screen)"/>
-            <g clip-path="url(#screenClip)">
-              <!-- top bar -->
-              <rect x="316" y="260" width="328" height="26" fill="#F3EEE2"/>
-              <circle cx="334" cy="273" r="4" fill="#D9AFC3"/>
-              <circle cx="348" cy="273" r="4" fill="#AFC598"/>
-              <circle cx="362" cy="273" r="4" fill="#DBCFBA"/>
-              <!-- chat (left): your prompt + the answer streaming -->
-              <rect x="372" y="296" width="124" height="18" rx="9" fill="url(#userMsg)"/>
-              <circle class="tdot"       cx="334" cy="334" r="3.6" fill="#B98FAD"/>
-              <circle class="tdot tdot2" cx="346" cy="334" r="3.6" fill="#B98FAD"/>
-              <circle class="tdot tdot3" cx="358" cy="334" r="3.6" fill="#B98FAD"/>
-              <rect x="332" y="350" width="150" height="7" rx="3.5" fill="#E6DDCC"/>
-              <rect x="332" y="364" width="120" height="7" rx="3.5" fill="#E6DDCC"/>
-              <rect x="332" y="378" width="138" height="7" rx="3.5" fill="#E6DDCC"/>
-              <rect x="332" y="392" width="92"  height="7" rx="3.5" fill="#E6DDCC"/>
-              <!-- glass Meanwhile panel (right): related read + prep questions -->
-              <rect x="506" y="286" width="138" height="142" fill="url(#panelG)"/>
-              <rect x="506" y="286" width="138" height="40" fill="#FFFFFF" opacity="0.14"/>
-              <path d="M506 286 V428" stroke="#CFE0BC" stroke-width="1.5"/>
-              <circle cx="524" cy="306" r="5" fill="#6F8C57"/>
-              <text x="536" y="310" font-family="Satoshi, sans-serif" font-size="11.5" font-weight="600" fill="#566E43">Meanwhile</text>
-              <rect x="524" y="322" width="100" height="6" rx="3" fill="#CFE0BC"/>
-              <rect class="stream" x="524" y="322" width="100" height="6" rx="3" fill="#7E9C63"/>
-              <rect x="524" y="336" width="84" height="6" rx="3" fill="#C4D7AC"/>
-              <rect x="524" y="350" width="94" height="6" rx="3" fill="#C4D7AC"/>
-              <rect x="524" y="364" width="70" height="6" rx="3" fill="#C4D7AC"/>
-              <rect x="524" y="380" width="106" height="20" rx="10" fill="#FBF8F1" stroke="#AFC598"/>
-              <text x="533" y="393.5" font-family="Satoshi, sans-serif" font-size="9.5" font-weight="500" fill="#566E43">How does it scale?</text>
-              <rect x="524" y="404" width="106" height="20" rx="10" fill="#FBF8F1" stroke="#AFC598"/>
-              <text x="533" y="417.5" font-family="Satoshi, sans-serif" font-size="9.5" font-weight="500" fill="#566E43">What about cost?</text>
-              <!-- screen sheen -->
-              <polygon points="316,260 470,260 372,428 316,428" fill="#FFFFFF" opacity="0.05"/>
-            </g>
+          <!-- floating annotation cards -->
+          <g class="l-card-a">
+            <rect x="58" y="68" width="232" height="76" rx="16" fill="#2c2118" opacity="0.12" filter="url(#soft)"/>
+            <rect x="54" y="62" width="232" height="76" rx="16" fill="#FFFFFF" stroke="#EAE0CF"/>
+            <circle cx="86" cy="100" r="15" fill="#E6EDDA"/>
+            <path d="M79 100 l5 5 9 -10" stroke="#566E43" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <text x="112" y="95" font-family="'Bricolage Grotesque','Hanken Grotesk',sans-serif" font-size="16" font-weight="700" fill="#221E18">Wait reclaimed</text>
+            <text x="112" y="115" font-family="'Hanken Grotesk',sans-serif" font-size="11" fill="#5E564A">18s → a read + a sharper question</text>
           </g>
-
-          <!-- person (over-the-shoulder) -->
-          <g class="l-person">
-            <ellipse cx="448" cy="690" rx="174" ry="26" fill="#000" opacity="0.06"/>
-            <!-- chair back -->
-            <path d="M300 700 V598 q0 -56 56 -56 h184 q56 0 56 56 V700 Z" fill="url(#chair)"/>
-            <path d="M318 700 V600 q0 -40 40 -40 h180 q40 0 40 40 V700 Z" fill="#BCA88A"/>
-            <!-- torso / shirt -->
-            <path d="M330 700 V648 q0 -66 118 -66 q118 0 118 66 V700 Z" fill="url(#shirt)"/>
-            <path d="M448 582 q-60 0 -90 32 q42 -11 90 -11 q48 0 90 11 q-30 -32 -90 -32Z" fill="#9C5C7C" opacity="0.5"/>
-            <path d="M430 590 l18 16 l18 -16" fill="none" stroke="#7D4763" stroke-width="3" opacity="0.45" stroke-linecap="round"/>
-            <!-- neck -->
-            <rect x="420" y="554" width="56" height="58" rx="22" fill="url(#skin)"/>
-            <!-- head (back) -->
-            <circle cx="448" cy="526" r="73" fill="url(#skin)"/>
-            <circle cx="448" cy="518" r="73" fill="url(#hair)"/>
-            <path d="M382 504 a66 66 0 0 1 132 0 q-66 -24 -132 0Z" fill="#54422F"/>
-            <!-- headphones -->
-            <path d="M378 522 a70 70 0 0 1 140 0" fill="none" stroke="#566E43" stroke-width="13" stroke-linecap="round"/>
-            <rect x="366" y="514" width="22" height="48" rx="11" fill="#6F8C57"/>
-            <rect x="508" y="514" width="22" height="48" rx="11" fill="#6F8C57"/>
-            <rect x="370" y="514" width="5" height="48" rx="2.5" fill="#88A56A"/>
-          </g>
-
-          <!-- floating Meanwhile callout: the sharper follow-up, staged -->
-          <g class="l-nudge">
-            <rect x="104" y="156" width="270" height="128" rx="22" fill="#2c2118" opacity="0.16" filter="url(#soft)"/>
-            <rect x="100" y="150" width="270" height="128" rx="22" fill="url(#cardG)" stroke="#EAE0CF"/>
-            <rect x="100" y="150" width="270" height="44" rx="22" fill="#FFFFFF" opacity="0.06"/>
-            <circle cx="126" cy="182" r="6" fill="#6F8C57"/>
-            <text x="140" y="186" font-family="Satoshi, sans-serif" font-size="12" font-weight="600" fill="#566E43">Meanwhile</text>
-            <text x="120" y="221" font-family="'Clash Display', sans-serif" font-size="23" font-weight="600" fill="#221E18">Next question, ready</text>
-            <rect x="120" y="234" width="226" height="34" rx="17" fill="url(#cta)"/>
-            <text x="138" y="256" font-family="Satoshi, sans-serif" font-size="12" font-weight="600" fill="#FCFAF4">Fire the sharper follow-up →</text>
+          <g class="l-card-b">
+            <rect x="722" y="524" width="226" height="66" rx="16" fill="#2c2118" opacity="0.12" filter="url(#soft)"/>
+            <rect x="718" y="518" width="226" height="66" rx="16" fill="#FFFFFF" stroke="#EAE0CF"/>
+            <circle cx="744" cy="551" r="6" fill="#9C5C7C"/>
+            <text x="760" y="547" font-family="'Bricolage Grotesque','Hanken Grotesk',sans-serif" font-size="15" font-weight="700" fill="#221E18">Follow-up staged</text>
+            <text x="760" y="566" font-family="'Hanken Grotesk',sans-serif" font-size="10.5" fill="#5E564A">ready before the answer lands</text>
           </g>
         </svg>
       </div>
@@ -587,6 +515,60 @@
           <h3>Lives where you work</h3>
           <p>A standalone web app shows the full experience — and a Chrome extension docks Meanwhile right inside Claude.ai, in an isolated card that never interferes with the page.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- software showcase: a close-up of the Meanwhile panel itself -->
+  <section class="alt center" aria-labelledby="see-h">
+    <div class="wrap">
+      <div class="sec-eyebrow" style="justify-content:center">The software</div>
+      <h2 id="see-h">This is the panel that fills your wait.</h2>
+      <p class="lead">A polished, isolated card that docks beside Claude — readable context generated while you waited, and your next question composed and ready to send.</p>
+      <div class="shot-frame reveal">
+        <svg class="shot-svg" viewBox="0 0 900 540" role="img" aria-labelledby="shotTitle shotDesc" preserveAspectRatio="xMidYMid meet">
+          <title id="shotTitle">A close-up of the Meanwhile extension panel</title>
+          <desc id="shotDesc">A large product card for the Meanwhile panel as it docks into Claude.ai: a "Related read" with a title and a readable three-line excerpt and a time tag, three one-tap follow-up question chips, and a highlighted composed question with a Send button.</desc>
+          <defs>
+            <filter id="s2soft" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="10"/></filter>
+            <linearGradient id="s2send" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#A8678B"/><stop offset="1" stop-color="#7D4763"/></linearGradient>
+          </defs>
+          <rect x="130" y="52" width="640" height="452" rx="22" fill="#2c2118" opacity="0.12" filter="url(#s2soft)"/>
+          <rect x="130" y="40" width="640" height="452" rx="22" fill="#FFFFFF" stroke="#E9E0D0"/>
+
+          <!-- header -->
+          <circle cx="164" cy="80" r="6.5" fill="#6F8C57"/>
+          <text x="180" y="86" font-family="'Bricolage Grotesque','Hanken Grotesk',sans-serif" font-size="20" font-weight="700" fill="#566E43">Meanwhile</text>
+          <rect x="606" y="66" width="130" height="28" rx="14" fill="#E6EDDA" stroke="#D7E2C5"/>
+          <circle cx="626" cy="80" r="4" fill="#9DB87E"/>
+          <text x="638" y="85" font-family="'Hanken Grotesk',sans-serif" font-size="12" font-weight="500" fill="#566E43">on claude.ai</text>
+          <rect x="158" y="108" width="578" height="1.5" fill="#EDE4D4"/>
+
+          <!-- related read -->
+          <text x="158" y="136" font-family="'Hanken Grotesk',sans-serif" font-size="11" font-weight="700" letter-spacing="1.4" fill="#7E9466">RELATED READ</text>
+          <text x="158" y="164" font-family="'Bricolage Grotesque','Hanken Grotesk',sans-serif" font-size="19" font-weight="600" fill="#221E18">Range vs. hash sharding — when each wins</text>
+          <text x="158" y="192" font-family="'Hanken Grotesk',sans-serif" font-size="13.5" fill="#5E564A">Range sharding splits rows by ordered key ranges — great</text>
+          <text x="158" y="213" font-family="'Hanken Grotesk',sans-serif" font-size="13.5" fill="#5E564A">for time-series and range scans, but prone to hot spots.</text>
+          <text x="158" y="234" font-family="'Hanken Grotesk',sans-serif" font-size="13.5" fill="#5E564A">Hash sharding spreads writes evenly across every node…</text>
+          <rect x="158" y="248" width="232" height="22" rx="11" fill="#E6EDDA"/>
+          <text x="170" y="263" font-family="'Hanken Grotesk',sans-serif" font-size="11" font-weight="500" fill="#566E43">2 min · written while you waited</text>
+
+          <!-- prep questions -->
+          <text x="158" y="312" font-family="'Hanken Grotesk',sans-serif" font-size="11" font-weight="700" letter-spacing="1.4" fill="#7E9466">PREPARE YOUR FOLLOW-UP</text>
+          <rect x="158" y="322" width="190" height="30" rx="15" fill="#E6EDDA" stroke="#AFC598"/>
+          <text x="174" y="341" font-family="'Hanken Grotesk',sans-serif" font-size="12.5" font-weight="600" fill="#566E43">Avoiding hot partitions</text>
+          <rect x="358" y="322" width="150" height="30" rx="15" fill="#FFFFFF" stroke="#D7E2C5"/>
+          <text x="374" y="341" font-family="'Hanken Grotesk',sans-serif" font-size="12.5" font-weight="500" fill="#6E7D5A">Resharding later</text>
+          <rect x="158" y="360" width="180" height="30" rx="15" fill="#FFFFFF" stroke="#D7E2C5"/>
+          <text x="174" y="379" font-family="'Hanken Grotesk',sans-serif" font-size="12.5" font-weight="500" fill="#6E7D5A">Multi-region writes</text>
+
+          <!-- composed question -->
+          <rect x="158" y="404" width="578" height="68" rx="14" fill="#F6E6EE" stroke="#E2BBD0"/>
+          <text x="176" y="428" font-family="'Hanken Grotesk',sans-serif" font-size="10.5" font-weight="700" letter-spacing="0.8" fill="#7D4763">YOUR SHARPER QUESTION</text>
+          <text x="176" y="452" font-family="'Hanken Grotesk',sans-serif" font-size="15" font-weight="500" fill="#221E18">How do I avoid hot partitions when sharding by tenant_id?</text>
+          <rect x="636" y="416" width="84" height="30" rx="15" fill="url(#s2send)"/>
+          <text x="652" y="436" font-family="'Hanken Grotesk',sans-serif" font-size="13" font-weight="600" fill="#FCFAF4">Send →</text>
+        </svg>
       </div>
     </div>
   </section>
