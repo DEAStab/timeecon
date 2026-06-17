@@ -4,6 +4,7 @@
   // Docs: https://developers.cloudflare.com/workers/static-assets/
   "name": "timeecon",
   "compatibility_date": "2026-06-17",
+  "workers_dev": true,
   "assets": {
     "directory": "./public"
   },
