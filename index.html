@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>No More Watching — reclaim your attention</title>
-<meta name="description" content="No More Watching helps you break the scroll, reclaim your hours, and spend your attention on what actually matters." />
-<meta property="og:title" content="No More Watching" />
-<meta property="og:description" content="Break the scroll. Reclaim your hours. Spend your attention on what matters." />
+<title>Time Economy — orchestrate your coding agents, don't watch them</title>
+<meta name="description" content="Autonomous agents produce; the engineer waits. Time Economy turns the gaps between agent runs into throughput — keeping a fleet continuously fed and rigorously reviewed." />
+<meta property="og:title" content="Time Economy" />
+<meta property="og:description" content="The machine writes the code. Your attention is the scarce resource. Time Economy is the operating system for orchestrating autonomous coding agents." />
 <meta property="og:type" content="website" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -87,32 +87,58 @@
   .eyebrow .pulse { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 0 rgba(110,231,183,0.7); animation: pulse 2s infinite; }
   @keyframes pulse { 0%{ box-shadow:0 0 0 0 rgba(110,231,183,0.6);} 70%{ box-shadow:0 0 0 10px rgba(110,231,183,0);} 100%{ box-shadow:0 0 0 0 rgba(110,231,183,0);} }
   h1 {
-    font-size: clamp(40px, 7vw, 76px); line-height: 1.02; letter-spacing: -0.04em; font-weight: 800;
+    font-size: clamp(40px, 7vw, 72px); line-height: 1.04; letter-spacing: -0.04em; font-weight: 800;
     background: linear-gradient(180deg, #fff 30%, #aeb6c6); -webkit-background-clip: text; background-clip: text; color: transparent;
     margin-bottom: 22px;
   }
   h1 .grad { background: linear-gradient(120deg, var(--accent), var(--accent-2) 50%, var(--accent-3)); -webkit-background-clip: text; background-clip: text; color: transparent; }
-  .sub { font-size: clamp(17px, 2.2vw, 21px); color: var(--muted); max-width: 620px; margin: 0 auto 36px; }
+  .sub { font-size: clamp(17px, 2.2vw, 20px); color: var(--muted); max-width: 660px; margin: 0 auto 36px; }
   .cta-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 
-  /* preview card */
-  .preview { margin: 64px auto 0; max-width: 880px; }
+  /* fleet preview card */
+  .preview { margin: 64px auto 0; max-width: 720px; }
   .card {
     background: linear-gradient(180deg, var(--panel), var(--bg-2));
-    border: 1px solid var(--border); border-radius: 20px; padding: 28px;
+    border: 1px solid var(--border); border-radius: 20px; padding: 22px;
     box-shadow: 0 30px 80px rgba(0,0,0,0.5);
   }
-  .stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; text-align: left; }
-  .stat .num { font-size: clamp(30px, 5vw, 44px); font-weight: 800; letter-spacing: -0.03em; }
-  .stat .num.g { background: linear-gradient(120deg,var(--accent),var(--accent-2)); -webkit-background-clip:text; background-clip:text; color:transparent; }
-  .stat .lbl { color: var(--faint); font-size: 13px; margin-top: 4px; }
-  @media (max-width:560px){ .stat-grid{ grid-template-columns:1fr; gap:14px; } }
+  .card-head { display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; padding:0 4px; }
+  .card-head .title { font-size:13px; font-weight:600; color:var(--muted); letter-spacing:0.02em; }
+  .card-head .live { font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--accent); display:flex; align-items:center; gap:7px; }
+  .card-head .live .pulse { width:7px; height:7px; border-radius:50%; background:var(--accent); animation: pulse 2s infinite; }
+
+  .fleet { display:flex; flex-direction:column; gap:10px; text-align:left; }
+  .agent {
+    display:flex; align-items:center; gap:14px;
+    background: var(--panel-2); border:1px solid var(--border); border-radius:12px;
+    padding:13px 15px;
+  }
+  .agent .sdot { width:10px; height:10px; border-radius:50%; flex-shrink:0; }
+  .sdot.ready { background: var(--accent); box-shadow:0 0 12px rgba(110,231,183,0.7); }
+  .sdot.run { background: var(--accent-2); box-shadow:0 0 12px rgba(56,189,248,0.6); animation: pulse 1.6s infinite; }
+  .sdot.queue { background: var(--accent-3); box-shadow:0 0 12px rgba(167,139,250,0.5); }
+  .agent .meta { flex:1; min-width:0; }
+  .agent .name { font-size:14px; font-weight:600; letter-spacing:-0.01em; }
+  .agent .det { font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--faint); margin-top:2px; }
+  .agent .tag {
+    font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:500;
+    padding:4px 9px; border-radius:999px; white-space:nowrap; border:1px solid var(--border);
+  }
+  .tag.ready { color:var(--accent); background:rgba(110,231,183,0.08); }
+  .tag.run { color:var(--accent-2); background:rgba(56,189,248,0.08); }
+  .tag.queue { color:var(--accent-3); background:rgba(167,139,250,0.08); }
+  .fleet-foot {
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;
+    margin-top:16px; padding:0 6px; font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--faint);
+  }
+  .fleet-foot b { color: var(--accent); font-weight:500; }
 
   /* sections */
   section { padding: 84px 0; }
   .sec-eyebrow { color: var(--accent-2); font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 14px; }
   h2 { font-size: clamp(28px, 4vw, 42px); letter-spacing: -0.03em; font-weight: 800; line-height: 1.1; margin-bottom: 16px; }
-  .lead { color: var(--muted); font-size: 18px; max-width: 560px; }
+  .lead { color: var(--muted); font-size: 18px; max-width: 640px; }
+  .lead + .lead { margin-top: 18px; }
   .center { text-align: center; }
   .center .lead { margin: 0 auto; }
 
@@ -127,16 +153,30 @@
     width: 46px; height: 46px; border-radius: 12px; display: grid; place-items: center; font-size: 22px;
     background: linear-gradient(135deg, rgba(110,231,183,0.18), rgba(56,189,248,0.18)); border: 1px solid var(--border); margin-bottom: 18px;
   }
+  .feature .kicker { font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--accent); margin-bottom:10px; }
   .feature h3 { font-size: 19px; margin-bottom: 8px; letter-spacing: -0.01em; }
   .feature p { color: var(--muted); font-size: 15px; }
 
-  /* steps */
-  .steps { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; margin-top: 52px; }
-  @media (max-width:860px){ .steps{ grid-template-columns:1fr; } }
-  .step .n { font-family:'JetBrains Mono',monospace; color: var(--accent); font-size: 14px; margin-bottom: 10px; }
-  .step h3 { font-size: 20px; margin-bottom: 8px; }
-  .step p { color: var(--muted); font-size: 15px; }
-  .step { border-top: 1px solid var(--border); padding-top: 22px; }
+  /* pull quote */
+  .quote {
+    margin: 8px auto; text-align:center;
+    border-top:1px solid var(--border); border-bottom:1px solid var(--border);
+    padding: 64px 0;
+  }
+  .quote blockquote {
+    font-size: clamp(24px, 3.6vw, 36px); font-weight: 700; letter-spacing:-0.03em; line-height:1.2;
+    max-width: 820px; margin: 0 auto 18px;
+    background: linear-gradient(180deg, #fff 40%, #aeb6c6); -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .quote cite { color: var(--faint); font-style: normal; font-size: 14px; font-family:'JetBrains Mono',monospace; }
+
+  /* platform jobs */
+  .jobs { display: grid; grid-template-columns: repeat(2,1fr); gap: 22px; margin-top: 52px; }
+  @media (max-width:760px){ .jobs{ grid-template-columns:1fr; } }
+  .job { border-top: 1px solid var(--border); padding-top: 22px; }
+  .job .n { font-family:'JetBrains Mono',monospace; color: var(--accent); font-size: 14px; margin-bottom: 10px; }
+  .job h3 { font-size: 20px; margin-bottom: 8px; letter-spacing:-0.01em; }
+  .job p { color: var(--muted); font-size: 15px; }
 
   /* CTA band */
   .band {
@@ -147,7 +187,7 @@
     border: 1px solid var(--border); border-radius: 24px; padding: 64px 28px;
   }
   .band h2 { margin-bottom: 14px; }
-  .band p { color: var(--muted); max-width: 480px; margin: 0 auto 28px; font-size: 17px; }
+  .band p { color: var(--muted); max-width: 520px; margin: 0 auto 28px; font-size: 17px; }
 
   /* footer */
   footer { border-top: 1px solid var(--border); padding: 40px 0; color: var(--faint); }
@@ -164,12 +204,12 @@
 
 <header>
   <div class="wrap nav">
-    <a href="#top" class="brand"><span class="dot"></span> No More Watching</a>
+    <a href="#top" class="brand"><span class="dot"></span> Time Economy</a>
     <nav class="nav-links">
-      <a href="#why">Why</a>
-      <a href="#how">How it works</a>
-      <a href="#features">Features</a>
-      <a href="#start" class="btn btn-primary">Get started</a>
+      <a href="#thesis">Thesis</a>
+      <a href="#model">Operating model</a>
+      <a href="#platform">The platform</a>
+      <a href="#start" class="btn btn-primary">Get early access</a>
     </nav>
   </div>
 </header>
@@ -177,92 +217,139 @@
 <main id="top">
   <section class="hero">
     <div class="wrap">
-      <span class="eyebrow"><span class="pulse"></span> Now in early access</span>
-      <h1>Break the scroll.<br /><span class="grad">Reclaim your hours.</span></h1>
-      <p class="sub">No More Watching turns the endless feed back into time you own — so your attention goes to what actually matters.</p>
+      <span class="eyebrow"><span class="pulse"></span> For the age of autonomous coding agents</span>
+      <h1>The machine writes the code.<br /><span class="grad">Your attention is the scarce resource.</span></h1>
+      <p class="sub">Agents inverted software's oldest relationship: the machine now produces and the engineer waits. Time Economy turns the gaps between agent runs into throughput — keeping a whole fleet continuously fed and rigorously reviewed.</p>
       <div class="cta-row">
-        <a href="#start" class="btn btn-primary">Get started →</a>
-        <a href="#how" class="btn btn-ghost">See how it works</a>
+        <a href="#start" class="btn btn-primary">Request early access →</a>
+        <a href="#thesis" class="btn btn-ghost">Read the thesis</a>
       </div>
 
       <div class="preview reveal">
         <div class="card">
-          <div class="stat-grid">
-            <div class="stat"><div class="num g">2.7h</div><div class="lbl">Average daily time reclaimed</div></div>
-            <div class="stat"><div class="num">94%</div><div class="lbl">Stick with it past week one</div></div>
-            <div class="stat"><div class="num">0</div><div class="lbl">Ads. Trackers. Guilt trips.</div></div>
+          <div class="card-head">
+            <span class="title">Fleet</span>
+            <span class="live"><span class="pulse"></span> orchestrating</span>
+          </div>
+          <div class="fleet">
+            <div class="agent">
+              <span class="sdot ready"></span>
+              <div class="meta">
+                <div class="name">auth-refactor</div>
+                <div class="det">diff +142 −38 · 2 risky changes flagged</div>
+              </div>
+              <span class="tag ready">ready for review</span>
+            </div>
+            <div class="agent">
+              <span class="sdot run"></span>
+              <div class="meta">
+                <div class="name">migrate-test-suite</div>
+                <div class="det">running · 2m 41s · 18 / 31 files</div>
+              </div>
+              <span class="tag run">in flight</span>
+            </div>
+            <div class="agent">
+              <span class="sdot queue"></span>
+              <div class="meta">
+                <div class="name">api-pagination</div>
+                <div class="det">next prompt drafted from ticket #482</div>
+              </div>
+              <span class="tag queue">queued</span>
+            </div>
+          </div>
+          <div class="fleet-foot">
+            <span>3 agents in flight · <b>0s attention stranded</b></span>
+            <span>next: review auth-refactor →</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="why">
+  <section id="thesis">
     <div class="wrap center">
-      <div class="sec-eyebrow">The problem</div>
-      <h2>The feed was never on your side.</h2>
-      <p class="lead">Infinite scroll is engineered to keep you watching. Every minute it wins is a minute of your life it spends. No More Watching is built to give that time back — quietly, on your terms.</p>
+      <div class="sec-eyebrow">The thesis</div>
+      <h2>Watching one agent is the slowest way to work.</h2>
+      <p class="lead">It feels productive — something is visibly happening on the screen. It is, in fact, the lowest-throughput arrangement available. During the run you contribute nothing; during review the agent contributes nothing; the two alternate in lockstep while an expensive resource sits at near-zero utilization.</p>
+      <p class="lead">The idle stretches that result — thirty seconds here, twelve minutes there — are not rest. They are the new substrate of the workday, and left unmanaged they are pure waste. Worse: unreviewed agent code is exactly where subtle defects, security gaps, and quiet shortcuts hide. The fix isn't to work faster. It's to change the shape of the work from <em>serial</em> to <em>concurrent</em>, and your role from watcher to reviewer and orchestrator.</p>
     </div>
   </section>
 
-  <section id="features">
+  <section id="model">
     <div class="wrap">
-      <div class="sec-eyebrow">What you get</div>
-      <h2>Designed to set you free, not hook you.</h2>
+      <div class="sec-eyebrow">The operating model</div>
+      <h2>Three rules govern the practice.</h2>
+      <p class="lead">You become less a craftsperson at a workbench than the operator of a small, fast factory — and a factory's economics are governed by throughput and utilization, not the speed of any single hand.</p>
       <div class="features">
         <div class="feature reveal">
-          <div class="ic">🧭</div>
-          <h3>Intentful by default</h3>
-          <p>Open an app and you're asked what you came for — not dropped into a feed designed to swallow the next hour.</p>
+          <div class="ic">🛰️</div>
+          <div class="kicker">Rule 01</div>
+          <h3>Run many, not one</h3>
+          <p>Decompose the backlog into independent tasks and keep as many working as you can keep reviewed. Treat the feeling of idleness as a signal that there's room for one more.</p>
         </div>
         <div class="feature reveal">
-          <div class="ic">⏳</div>
-          <h3>Time you can see</h3>
-          <p>Honest, real-time numbers on where your attention actually went. No shame — just clarity you can act on.</p>
+          <div class="ic">🔍</div>
+          <div class="kicker">Rule 02</div>
+          <h3>Review, never watch</h3>
+          <p>The instant an agent finishes, read the diff — not the summary. Run the result and probe for the shortcut it took. Judgment is the scarce skill, and this is where it's best spent.</p>
         </div>
         <div class="feature reveal">
-          <div class="ic">🌙</div>
-          <h3>Calm by design</h3>
-          <p>Gentle wind-downs, soft limits, and a quiet interface that never begs for one more tap.</p>
+          <div class="ic">⌨️</div>
+          <div class="kicker">Rule 03</div>
+          <h3>Always have the next prompt loaded</h3>
+          <p>Use each gap to specify the next task with examples and constraints, so no agent ever waits on a human to decide what comes next. A sharp prompt now prevents several correction loops later.</p>
         </div>
         <div class="feature reveal">
-          <div class="ic">🔒</div>
-          <h3>Private, always</h3>
-          <p>Your usage stays on your device. No ads, no resale, no profile built behind your back.</p>
+          <div class="ic">🧠</div>
+          <h3>Respect the switch cost</h3>
+          <p>Match the depth of the filler task to the length of the gap: review, triage, and ticket hygiene for short windows; design and refactoring for long ones. Deep work started in a three-minute gap loses both threads.</p>
         </div>
         <div class="feature reveal">
-          <div class="ic">🎯</div>
-          <h3>Goals that stick</h3>
-          <p>Set what matters this week and let small, achievable nudges keep you pointed at it.</p>
+          <div class="ic">⚖️</div>
+          <h3>Parallelism has a limit</h3>
+          <p>It pays only up to the number of agents one human can genuinely keep reviewed. Past that line, the unreviewed work isn't throughput — it's liability. Time Economy keeps you at the line, not beyond it.</p>
         </div>
         <div class="feature reveal">
-          <div class="ic">⚡</div>
-          <h3>Works everywhere</h3>
-          <p>Phone, laptop, browser. One simple setup that follows you across every screen you own.</p>
+          <div class="ic">🏭</div>
+          <h3>Throughput over speed</h3>
+          <p>Agent speed is fast becoming a commodity. The teams that prevail keep their agents continuously fed and rigorously reviewed — wasting as little human attention as possible.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="how">
+  <section class="quote">
     <div class="wrap">
-      <div class="sec-eyebrow">How it works</div>
-      <h2>Three steps to a quieter mind.</h2>
-      <div class="steps">
-        <div class="step reveal">
+      <blockquote>“The engineer's value is migrating from production to orchestration.”</blockquote>
+      <cite>— The Time Economy whitepaper</cite>
+    </div>
+  </section>
+
+  <section id="platform">
+    <div class="wrap">
+      <div class="sec-eyebrow">The platform</div>
+      <h2>Time Economy runs the model for you.</h2>
+      <p class="lead">It sits alongside your fleet and absorbs the orchestration work that otherwise leaks into dead time — so you don't have to hold all of it in mind at once.</p>
+      <div class="jobs">
+        <div class="job reveal">
           <div class="n">01</div>
-          <h3>Connect</h3>
-          <p>Add No More Watching to the apps and sites that pull you in most. Takes about two minutes.</p>
+          <h3>Reviews as each agent finishes</h3>
+          <p>Reads the diff the moment a run completes, flags risky changes, missing tests, and likely shortcuts — and surfaces only what genuinely requires human eyes.</p>
         </div>
-        <div class="step reveal">
+        <div class="job reveal">
           <div class="n">02</div>
-          <h3>Set your intent</h3>
-          <p>Tell it what a good day looks like. It quietly holds the line so you don't have to fight willpower all day.</p>
+          <h3>Drafts the next prompt early</h3>
+          <p>Refines the upcoming instruction in the background before the current run finishes, so the next task is queued and specified the moment you're ready — collapsing the gap between runs toward zero.</p>
         </div>
-        <div class="step reveal">
+        <div class="job reveal">
           <div class="n">03</div>
-          <h3>Live it</h3>
-          <p>Watch the reclaimed hours add up — and spend them on the things the feed kept taking.</p>
+          <h3>Dispatches against the backlog</h3>
+          <p>Scans open tickets, identifies independent work that can proceed in parallel, and proposes agents to launch — so idle capacity becomes work in flight.</p>
+        </div>
+        <div class="job reveal">
+          <div class="n">04</div>
+          <h3>Points you to the highest-value time</h3>
+          <p>Once the loop is closed, it directs your remaining attention where it pays most — because in the Time Economy, the last task is always to find the next way to fill the time.</p>
         </div>
       </div>
     </div>
@@ -271,9 +358,9 @@
   <section id="start">
     <div class="wrap">
       <div class="band reveal">
-        <h2>Stop watching. Start living.</h2>
-        <p>Join the early access list and be first in when No More Watching opens up.</p>
-        <a href="mailto:hello@nomorewatching.com?subject=Early%20access" class="btn btn-primary">Request early access →</a>
+        <h2>Stop watching. Start orchestrating.</h2>
+        <p>Join the early-access list and be first in when Time Economy opens up.</p>
+        <a href="mailto:hello@timeeconomy.dev?subject=Early%20access" class="btn btn-primary">Request early access →</a>
       </div>
     </div>
   </section>
@@ -281,12 +368,12 @@
 
 <footer>
   <div class="wrap foot">
-    <div>© 2026 No More Watching · nomorewatching.com</div>
+    <div>© 2026 Time Economy · engineer attention, well spent</div>
     <div style="display:flex; gap:22px;">
-      <a href="#why">Why</a>
-      <a href="#features">Features</a>
-      <a href="#how">How it works</a>
-      <a href="mailto:hello@nomorewatching.com">Contact</a>
+      <a href="#thesis">Thesis</a>
+      <a href="#model">Operating model</a>
+      <a href="#platform">The platform</a>
+      <a href="mailto:hello@timeeconomy.dev">Contact</a>
     </div>
   </div>
 </footer>
