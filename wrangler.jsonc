@@ -1,0 +1,10 @@
+{
+  // Cloudflare Workers config for the Time Economy landing page.
+  // Static-assets-only Worker (no script): serves the files in ./public.
+  // Docs: https://developers.cloudflare.com/workers/static-assets/
+  "name": "timeecon",
+  "compatibility_date": "2026-06-17",
+  "assets": {
+    "directory": "./public"
+  }
+}
