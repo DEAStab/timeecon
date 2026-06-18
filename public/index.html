@@ -58,9 +58,10 @@
     text-rendering: optimizeLegibility;
     overflow-x: hidden;
   }
+  /* heading weights step down for rhythm: hero loudest, the rest calmer */
   h1, h2, h3, .display {
     font-family: var(--display);
-    font-weight: 700;
+    font-weight: 600;
     letter-spacing: -0.02em;
     line-height: 1.05;
     color: var(--ink);
@@ -92,7 +93,7 @@
     border-bottom: 1px solid var(--line);
   }
   .nav { display: flex; align-items: center; justify-content: space-between; height: 74px; }
-  .brand { display: flex; align-items: center; gap: 11px; font-family: var(--display); font-size: 22px; font-weight: 700; letter-spacing: -0.02em; }
+  .brand { display: flex; align-items: center; gap: 11px; font-family: var(--display); font-size: 22px; font-weight: 600; letter-spacing: -0.02em; }
   .brand .mark { position: relative; width: 28px; height: 18px; flex-shrink: 0; }
   .brand .mark i { position: absolute; top: 0; width: 18px; height: 18px; border-radius: 50%; display: block; }
   .brand .mark i:first-child { left: 0; background: var(--plum-soft); }
@@ -111,9 +112,13 @@
   .btn-primary:hover { filter: brightness(1.05); transform: translateY(-2px); box-shadow: 0 18px 38px rgba(125,71,99,0.38); }
   .btn-ghost { background: transparent; border-color: var(--line-2); color: var(--ink); }
   .btn-ghost:hover { background: var(--card-2); border-color: var(--plum-soft); }
+  /* nav primary button: keep white text (beat .nav-links a) + tighter, contained glow */
+  .nav-links a.btn-primary { color: #FCFAF4; box-shadow: 0 4px 13px rgba(125,71,99,0.22); }
+  .nav-links a.btn-primary:hover { color: #FCFAF4; box-shadow: 0 8px 18px rgba(125,71,99,0.30); }
   @media (max-width: 760px){ .nav-links a:not(.btn){ display:none; } }
 
-  .hero { padding: 108px 0 56px; text-align: center; }
+  /* ===== hero (left-aligned) ===== */
+  .hero { padding: 108px 0 56px; }
   .eyebrow {
     display: inline-flex; align-items: center; gap: 9px;
     font-size: 13.5px; color: var(--green-deep); font-weight: 600; letter-spacing: 0.01em;
@@ -123,19 +128,16 @@
   .eyebrow .leaf { width: 8px; height: 8px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 0 rgba(111,140,87,0.6); animation: pulse 2.4s infinite; }
   @keyframes pulse { 0%{ box-shadow:0 0 0 0 rgba(111,140,87,0.5);} 70%{ box-shadow:0 0 0 9px rgba(111,140,87,0);} 100%{ box-shadow:0 0 0 0 rgba(111,140,87,0);} }
 
-  h1 { font-size: clamp(46px, 7.6vw, 88px); font-weight: 800; letter-spacing: -0.035em; line-height: 0.98; margin-bottom: 24px; }
-  h1 .accent {
-    background: linear-gradient(105deg, var(--plum) 8%, var(--green) 94%);
-    -webkit-background-clip: text; background-clip: text; color: transparent;
-  }
-  .sub { font-size: clamp(17px, 2.1vw, 20px); color: var(--ink-soft); max-width: 660px; margin: 0 auto 34px; font-weight: 400; }
-  .cta-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  h1 { font-size: clamp(46px, 7.6vw, 86px); font-weight: 800; letter-spacing: -0.035em; line-height: 0.98; margin-bottom: 24px; max-width: 14ch; }
+  /* solid plum — one clean colour job, no muddy gradient midpoint */
+  h1 .accent { color: var(--plum); }
+  .sub { font-size: clamp(17px, 2.1vw, 20px); color: var(--ink-soft); max-width: 60ch; margin: 0 0 34px; font-weight: 400; }
+  .cta-row { display: flex; gap: 14px; justify-content: flex-start; flex-wrap: wrap; }
   .hero-note { margin-top: 22px; font-size: 14px; color: var(--faint); }
 
   /* ===== product-mockup centerpiece ===== */
   .scene { padding: 36px 0 96px; }
-  .scene-cap { text-align: center; max-width: 580px; margin: 0 auto 30px; }
-  .scene-cap .sec-eyebrow { justify-content: center; }
+  .scene-cap { max-width: 60ch; margin: 0 0 30px; }
   .scene-cap p { color: var(--ink-soft); font-size: 16px; }
   .stage {
     position: relative; width: 100%; max-width: 1000px; margin: 0 auto;
@@ -181,7 +183,7 @@
 
   /* ===== software showcase shot ===== */
   .shot-frame {
-    position: relative; width: 100%; max-width: 760px; margin: 40px auto 0;
+    position: relative; width: 100%; max-width: 760px; margin: 40px 0 0;
     aspect-ratio: 900 / 540;
     border-radius: 26px; overflow: hidden;
     border: 1px solid var(--line);
@@ -199,19 +201,38 @@
     color: var(--plum-deep); font-size: 12.5px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 16px;
     font-family: var(--body);
   }
+  .sec-eyebrow.green { color: var(--green-deep); }
+  .sec-eyebrow.green::before { background: var(--green-soft); }
   .sec-eyebrow::before { content:""; width: 22px; height: 1.5px; background: var(--plum-soft); display:inline-block; }
-  h2 { font-size: clamp(32px, 4.6vw, 52px); font-weight: 700; letter-spacing: -0.028em; margin-bottom: 18px; }
-  .lead { color: var(--ink-soft); font-size: 18px; max-width: 680px; }
-  .lead + .lead { margin-top: 18px; }
-  .center { text-align: center; }
-  .center .sec-eyebrow { justify-content: center; }
-  .center .lead { margin: 0 auto; }
+  h2 { font-size: clamp(32px, 4.6vw, 50px); font-weight: 600; letter-spacing: -0.028em; margin-bottom: 18px; max-width: 18ch; }
+  .lead { color: var(--ink-soft); font-size: 18px; max-width: 64ch; }
+  .lead + .lead { margin-top: 20px; }
 
-  .features { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; margin-top: 56px; }
+  /* numbered step flow (a sequence — visually distinct from the attribute cards) */
+  .steps { list-style: none; display: grid; grid-template-columns: repeat(3,1fr); gap: 30px; margin-top: 52px; }
+  @media (max-width:880px){ .steps{ grid-template-columns:1fr; gap: 30px; } }
+  .step { position: relative; }
+  .step-n {
+    display: grid; place-items: center; width: 46px; height: 46px; border-radius: 50%;
+    background: var(--plum-tint); border: 1px solid var(--plum-soft); color: var(--plum-deep);
+    font-family: var(--display); font-weight: 700; font-size: 17px; margin-bottom: 18px;
+    position: relative; z-index: 1;
+  }
+  .step:not(:last-child)::after {
+    content: ""; position: absolute; top: 23px; left: 60px; right: -30px; height: 2px;
+    background: linear-gradient(to right, var(--plum-soft), rgba(217,175,195,0));
+  }
+  @media (max-width:880px){ .step:not(:last-child)::after{ display:none; } }
+  .step h3 { font-size: 21px; margin-bottom: 9px; }
+  .step p { color: var(--ink-soft); font-size: 15.5px; }
+
+  /* attribute cards (a set, not a sequence) — their own block + eyebrow */
+  .attr-head { margin-top: 78px; }
+  .features { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; margin-top: 24px; }
   @media (max-width:880px){ .features{ grid-template-columns:1fr; } }
   .feature {
     background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
-    padding: 32px; transition: transform .25s var(--ease), border-color .25s, box-shadow .25s;
+    padding: 30px; transition: transform .25s var(--ease), border-color .25s, box-shadow .25s;
   }
   .feature:hover { transform: translateY(-4px); border-color: var(--green-soft); box-shadow: 0 24px 48px -28px rgba(58,44,34,0.38); }
   .feature .ic {
@@ -220,29 +241,27 @@
     color: var(--green-deep);
   }
   .feature .ic svg { width: 25px; height: 25px; }
-  .feature .kicker { font-size: 12.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--green-deep); margin-bottom: 10px; }
-  .feature h3 { font-size: 23px; margin-bottom: 9px; letter-spacing: -0.02em; }
+  .feature h3 { font-size: 22px; margin-bottom: 9px; }
   .feature p { color: var(--ink-soft); font-size: 15.5px; }
 
+  /* pull quote (deliberately centered display moment) */
   .quote { text-align:center; border-block:1px solid var(--line); padding: 96px 0; }
   .quote blockquote {
-    font-family: var(--display); font-weight: 600;
+    font-family: var(--display); font-weight: 500;
     font-size: clamp(28px, 4.2vw, 48px); line-height: 1.12; letter-spacing: -0.028em;
-    max-width: 900px; margin: 0 auto 20px; color: var(--ink);
+    max-width: 20ch; margin: 0 auto 20px; color: var(--ink);
   }
-  .quote blockquote .hl {
-    background: linear-gradient(105deg, var(--plum) 10%, var(--green) 95%);
-    -webkit-background-clip: text; background-clip: text; color: transparent;
-  }
+  .quote blockquote .hl { color: var(--plum); }
   .quote cite { color: var(--faint); font-style: normal; font-size: 14px; font-weight: 500; letter-spacing: 0.04em; }
 
-  .jobs { display: grid; grid-template-columns: repeat(2,1fr); gap: 24px 48px; margin-top: 56px; }
+  .jobs { display: grid; grid-template-columns: repeat(2,1fr); gap: 24px 48px; margin-top: 52px; }
   @media (max-width:780px){ .jobs{ grid-template-columns:1fr; } }
   .job { border-top: 1.5px solid var(--line-2); padding-top: 24px; }
   .job .n { font-family: var(--display); font-weight: 700; color: var(--plum); font-size: 24px; margin-bottom: 12px; letter-spacing: -0.01em; }
-  .job h3 { font-size: 23px; margin-bottom: 9px; letter-spacing: -0.02em; }
+  .job h3 { font-size: 22px; margin-bottom: 9px; }
   .job p { color: var(--ink-soft); font-size: 15.5px; }
 
+  /* CTA band (deliberately centered component) */
   .band {
     text-align: center; border-radius: 30px; padding: 78px 30px;
     background:
@@ -251,8 +270,8 @@
       var(--card);
     border: 1px solid var(--line);
   }
-  .band h2 { margin-bottom: 14px; }
-  .band p { color: var(--ink-soft); max-width: 540px; margin: 0 auto 30px; font-size: 17px; }
+  .band h2 { margin: 0 auto 14px; }
+  .band p { color: var(--ink-soft); max-width: 50ch; margin: 0 auto 30px; font-size: 17px; }
 
   footer { border-top: 1px solid var(--line); padding: 48px 0; color: var(--faint); }
   .foot { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 18px; font-size: 14.5px; }
@@ -316,7 +335,7 @@
   <section class="hero" aria-labelledby="hero-h">
     <div class="wrap">
       <span class="eyebrow"><span class="leaf" aria-hidden="true"></span> A latency copilot for everyone who works with AI</span>
-      <h1 id="hero-h">The model is thinking.<br /><span class="accent">Meanwhile, you're a step ahead.</span></h1>
+      <h1 id="hero-h">The model is thinking. <span class="accent">Meanwhile, you're a step ahead.</span></h1>
       <p class="sub">Every prompt opens a gap — a few seconds of spinner while the model thinks. Meanwhile fills it: a focused, related read streams in beside your answer while a sharper follow-up quietly composes itself — so the second your answer lands, your next question is ready to fire.</p>
       <div class="cta-row">
         <a href="#start" class="btn btn-primary">Request early access →</a>
@@ -336,7 +355,7 @@
       <div class="stage">
         <svg class="scene-svg" viewBox="0 0 1000 700" role="img" aria-labelledby="heroTitle heroDesc" preserveAspectRatio="xMidYMid meet">
           <title id="heroTitle">The Meanwhile panel docked inside a Claude.ai chat</title>
-          <desc id="heroDesc">A browser window showing a Claude.ai conversation. The assistant's answer is streaming on the left while a docked Meanwhile panel on the right shows a streaming related read, one-tap follow-up question chips, and a staged sharper question ready to send. Two small cards float over the window reading "Wait reclaimed" and "Follow-up staged".</desc>
+          <desc id="heroDesc">A browser window showing a Claude.ai conversation. The assistant's answer is streaming on the left while a docked Meanwhile panel on the right shows a streaming related read, one-tap follow-up question chips, and a staged sharper question ready to send. Two small cards float just off the window reading "Wait reclaimed" and "Follow-up staged".</desc>
           <defs>
             <filter id="soft" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="11"/></filter>
             <radialGradient id="glowP" cx="0.2" cy="0.15" r="0.6"><stop offset="0" stop-color="#EBC9DB" stop-opacity="0.55"/><stop offset="1" stop-color="#EBC9DB" stop-opacity="0"/></radialGradient>
@@ -377,10 +396,8 @@
 
           <!-- chat conversation (left) -->
           <g class="l-chat">
-            <!-- user message -->
             <rect x="300" y="162" width="296" height="40" rx="14" fill="url(#userB)"/>
             <text x="318" y="187" font-family="'Hanken Grotesk',sans-serif" font-size="13.5" font-weight="500" fill="#FCFAF4">How should I shard a Postgres table?</text>
-            <!-- assistant -->
             <circle cx="166" cy="244" r="12" fill="#E6EDDA" stroke="#D7E2C5"/>
             <circle cx="166" cy="244" r="3.2" fill="#6F8C57"/>
             <text x="190" y="240" font-family="'Hanken Grotesk',sans-serif" font-size="13.5" fill="#3a322a">Two main strategies — <tspan font-weight="600" fill="#221E18">range</tspan> and <tspan font-weight="600" fill="#221E18">hash</tspan></text>
@@ -389,11 +406,9 @@
             <rect x="190" y="290" width="340" height="8" rx="4" fill="#ECE3D3"/>
             <rect x="190" y="306" width="368" height="8" rx="4" fill="#ECE3D3"/>
             <rect x="190" y="322" width="210" height="8" rx="4" fill="#ECE3D3"/>
-            <!-- writing indicator -->
             <circle class="tdot"       cx="190" cy="346" r="3.4" fill="#C49AB6"/>
             <circle class="tdot tdot2" cx="202" cy="346" r="3.4" fill="#C49AB6"/>
             <circle class="tdot tdot3" cx="214" cy="346" r="3.4" fill="#C49AB6"/>
-            <!-- composer -->
             <rect x="152" y="498" width="436" height="40" rx="13" fill="#FBF7F0" stroke="#ECE3D2"/>
             <text x="170" y="523" font-family="'Hanken Grotesk',sans-serif" font-size="13" fill="#B7AC98">Reply to Claude…</text>
             <circle cx="566" cy="518" r="14" fill="#E7DFD2"/>
@@ -434,21 +449,21 @@
             <text x="797" y="488" font-family="'Hanken Grotesk',sans-serif" font-size="10" font-weight="600" fill="#FCFAF4">Send →</text>
           </g>
 
-          <!-- floating annotation cards -->
+          <!-- floating annotation cards — orbiting just off the window edges -->
           <g class="l-card-a">
-            <rect x="58" y="68" width="232" height="76" rx="16" fill="#2c2118" opacity="0.12" filter="url(#soft)"/>
-            <rect x="54" y="62" width="232" height="76" rx="16" fill="#FFFFFF" stroke="#EAE0CF"/>
-            <circle cx="86" cy="100" r="15" fill="#E6EDDA"/>
-            <path d="M79 100 l5 5 9 -10" stroke="#566E43" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-            <text x="112" y="95" font-family="'Bricolage Grotesque','Hanken Grotesk',sans-serif" font-size="16" font-weight="700" fill="#221E18">Wait reclaimed</text>
-            <text x="112" y="115" font-family="'Hanken Grotesk',sans-serif" font-size="11" fill="#5E564A">18s → a read + a sharper question</text>
+            <rect x="52" y="30" width="248" height="64" rx="16" fill="#2c2118" opacity="0.12" filter="url(#soft)"/>
+            <rect x="48" y="24" width="248" height="64" rx="16" fill="#FFFFFF" stroke="#EAE0CF"/>
+            <circle cx="80" cy="56" r="15" fill="#E6EDDA"/>
+            <path d="M73 56 l5 5 9 -10" stroke="#566E43" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <text x="106" y="51" font-family="'Bricolage Grotesque','Hanken Grotesk',sans-serif" font-size="16" font-weight="700" fill="#221E18">Wait reclaimed</text>
+            <text x="106" y="71" font-family="'Hanken Grotesk',sans-serif" font-size="11" fill="#5E564A">18s → a read + a sharper question</text>
           </g>
           <g class="l-card-b">
-            <rect x="722" y="524" width="226" height="66" rx="16" fill="#2c2118" opacity="0.12" filter="url(#soft)"/>
-            <rect x="718" y="518" width="226" height="66" rx="16" fill="#FFFFFF" stroke="#EAE0CF"/>
-            <circle cx="744" cy="551" r="6" fill="#9C5C7C"/>
-            <text x="760" y="547" font-family="'Bricolage Grotesque','Hanken Grotesk',sans-serif" font-size="15" font-weight="700" fill="#221E18">Follow-up staged</text>
-            <text x="760" y="566" font-family="'Hanken Grotesk',sans-serif" font-size="10.5" fill="#5E564A">ready before the answer lands</text>
+            <rect x="652" y="596" width="242" height="64" rx="16" fill="#2c2118" opacity="0.12" filter="url(#soft)"/>
+            <rect x="648" y="590" width="242" height="64" rx="16" fill="#FFFFFF" stroke="#EAE0CF"/>
+            <circle cx="674" cy="622" r="6" fill="#9C5C7C"/>
+            <text x="690" y="618" font-family="'Bricolage Grotesque','Hanken Grotesk',sans-serif" font-size="15" font-weight="700" fill="#221E18">Follow-up staged</text>
+            <text x="690" y="637" font-family="'Hanken Grotesk',sans-serif" font-size="10.5" fill="#5E564A">ready before the answer lands</text>
           </g>
         </svg>
       </div>
@@ -456,7 +471,7 @@
   </section>
 
   <section id="why" class="alt" aria-labelledby="why-h">
-    <div class="wrap center">
+    <div class="wrap">
       <div class="sec-eyebrow">The dead time</div>
       <h2 id="why-h">Every wait is a little pool of wasted attention.</h2>
       <p class="lead">You hit send, and the spinner spins — a few seconds, every single time. On its own it's nothing. But multiply it across every prompt, every day, across millions of interactions, and it becomes an ocean of idle, intelligent attention quietly draining into a loading animation.</p>
@@ -468,61 +483,59 @@
     <div class="wrap">
       <div class="sec-eyebrow">How it works</div>
       <h2 id="how-h">The moment you hit send, Meanwhile gets to work too.</h2>
-      <p class="lead">It fires a second, fast plan in parallel with your main answer — and turns the wait into two kinds of momentum, with nothing for you to set up.</p>
-      <div class="features">
-        <div class="feature reveal">
-          <div class="ic" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg>
-          </div>
-          <div class="kicker">Step 01</div>
+      <p class="lead">It fires a second, fast plan in parallel with your main answer — turning the wait into two kinds of momentum, with nothing for you to set up.</p>
+
+      <ol class="steps">
+        <li class="step reveal">
+          <div class="step-n">01</div>
           <h3>Fires in parallel</h3>
           <p>The instant you send a prompt, Meanwhile launches a second, fast plan alongside your main answer — so the wait is already working before the spinner finishes its first turn.</p>
-        </div>
-        <div class="feature reveal">
-          <div class="ic" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M14 4v16"/><path d="M6.5 9h4"/><path d="M6.5 12.5h4"/></svg>
-          </div>
-          <div class="kicker">Step 02</div>
+        </li>
+        <li class="step reveal">
+          <div class="step-n">02</div>
           <h3>Streams a related read</h3>
-          <p>A focused, adjacent read appears in a side panel — the background you'd look up next, the consideration you hadn't framed, the obvious objection to your own question. Not a generic "did you know."</p>
-        </div>
-        <div class="feature reveal">
-          <div class="ic" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11.5a7.5 7.5 0 0 1-10.6 6.84L4 20l1.66-5.4A7.5 7.5 0 1 1 20 11.5z"/><path d="M9.5 11.5h5"/></svg>
-          </div>
-          <div class="kicker">Step 03</div>
+          <p>A focused, adjacent read appears beside your answer — the background you'd look up next, the consideration you hadn't framed, the obvious objection to your own question. Not a generic "did you know."</p>
+        </li>
+        <li class="step reveal">
+          <div class="step-n">03</div>
           <h3>Stages your next question</h3>
-          <p>A few one-tap prep questions compose a sharper follow-up as you answer them — so by the time your main answer lands, your next, better question is already written and ready to fire.</p>
-        </div>
-        <div class="feature reveal">
-          <div class="ic" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h12"/><path d="M13 5l3 3-3 3"/><path d="M20 16H8"/><path d="M11 13l-3 3 3 3"/></svg>
+          <p>One-tap prep questions compose a sharper follow-up as you answer them — so by the time the main answer lands, your next, better question is already written and ready to fire.</p>
+        </li>
+      </ol>
+
+      <div class="attr-head">
+        <div class="sec-eyebrow green">What makes it solid</div>
+        <div class="features">
+          <div class="feature reveal">
+            <div class="ic" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h12"/><path d="M13 5l3 3-3 3"/><path d="M20 16H8"/><path d="M11 13l-3 3 3 3"/></svg>
+            </div>
+            <h3>Provider-agnostic</h3>
+            <p>Your main answer streams from whatever model you already use. Meanwhile runs the wait-plan on a separate, fast model — it sits beside your stack, it doesn't replace it.</p>
           </div>
-          <h3>Provider-agnostic</h3>
-          <p>Your main answer streams from whatever model you already use. Meanwhile runs the wait-plan on a separate, fast model — it sits beside your stack, it doesn't replace it.</p>
-        </div>
-        <div class="feature reveal">
-          <div class="ic" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V12"/><path d="M10 20V5"/><path d="M16 20v-6"/><path d="M3.5 20h17"/></svg>
+          <div class="feature reveal">
+            <div class="ic" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V12"/><path d="M10 20V5"/><path d="M16 20v-6"/><path d="M3.5 20h17"/></svg>
+            </div>
+            <h3>Measured, not guessed</h3>
+            <p>An evaluation harness scores how relevant each read and question is — against the very same prompts the live app runs. Any improvement you can measure is, by construction, the one that ships.</p>
           </div>
-          <h3>Measured, not guessed</h3>
-          <p>An evaluation harness scores how relevant each read and question is — against the very same prompts the live app runs. Any improvement you can measure is, by construction, the one that ships.</p>
-        </div>
-        <div class="feature reveal">
-          <div class="ic" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3v5"/><path d="M15 3v5"/><path d="M7 8h10v3a5 5 0 0 1-10 0z"/><path d="M12 16v5"/></svg>
+          <div class="feature reveal">
+            <div class="ic" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3v5"/><path d="M15 3v5"/><path d="M7 8h10v3a5 5 0 0 1-10 0z"/><path d="M12 16v5"/></svg>
+            </div>
+            <h3>Lives where you work</h3>
+            <p>A standalone web app shows the full experience — and a Chrome extension docks Meanwhile right inside Claude.ai, in an isolated card that never interferes with the page.</p>
           </div>
-          <h3>Lives where you work</h3>
-          <p>A standalone web app shows the full experience — and a Chrome extension docks Meanwhile right inside Claude.ai, in an isolated card that never interferes with the page.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- software showcase: a close-up of the Meanwhile panel itself -->
-  <section class="alt center" aria-labelledby="see-h">
+  <section class="alt" aria-labelledby="see-h">
     <div class="wrap">
-      <div class="sec-eyebrow" style="justify-content:center">The software</div>
+      <div class="sec-eyebrow">The software</div>
       <h2 id="see-h">This is the panel that fills your wait.</h2>
       <p class="lead">A polished, isolated card that docks beside Claude — readable context generated while you waited, and your next question composed and ready to send.</p>
       <div class="shot-frame reveal">
@@ -536,7 +549,6 @@
           <rect x="130" y="52" width="640" height="452" rx="22" fill="#2c2118" opacity="0.12" filter="url(#s2soft)"/>
           <rect x="130" y="40" width="640" height="452" rx="22" fill="#FFFFFF" stroke="#E9E0D0"/>
 
-          <!-- header -->
           <circle cx="164" cy="80" r="6.5" fill="#6F8C57"/>
           <text x="180" y="86" font-family="'Bricolage Grotesque','Hanken Grotesk',sans-serif" font-size="20" font-weight="700" fill="#566E43">Meanwhile</text>
           <rect x="606" y="66" width="130" height="28" rx="14" fill="#E6EDDA" stroke="#D7E2C5"/>
@@ -544,7 +556,6 @@
           <text x="638" y="85" font-family="'Hanken Grotesk',sans-serif" font-size="12" font-weight="500" fill="#566E43">on claude.ai</text>
           <rect x="158" y="108" width="578" height="1.5" fill="#EDE4D4"/>
 
-          <!-- related read -->
           <text x="158" y="136" font-family="'Hanken Grotesk',sans-serif" font-size="11" font-weight="700" letter-spacing="1.4" fill="#7E9466">RELATED READ</text>
           <text x="158" y="164" font-family="'Bricolage Grotesque','Hanken Grotesk',sans-serif" font-size="19" font-weight="600" fill="#221E18">Range vs. hash sharding — when each wins</text>
           <text x="158" y="192" font-family="'Hanken Grotesk',sans-serif" font-size="13.5" fill="#5E564A">Range sharding splits rows by ordered key ranges — great</text>
@@ -553,7 +564,6 @@
           <rect x="158" y="248" width="232" height="22" rx="11" fill="#E6EDDA"/>
           <text x="170" y="263" font-family="'Hanken Grotesk',sans-serif" font-size="11" font-weight="500" fill="#566E43">2 min · written while you waited</text>
 
-          <!-- prep questions -->
           <text x="158" y="312" font-family="'Hanken Grotesk',sans-serif" font-size="11" font-weight="700" letter-spacing="1.4" fill="#7E9466">PREPARE YOUR FOLLOW-UP</text>
           <rect x="158" y="322" width="190" height="30" rx="15" fill="#E6EDDA" stroke="#AFC598"/>
           <text x="174" y="341" font-family="'Hanken Grotesk',sans-serif" font-size="12.5" font-weight="600" fill="#566E43">Avoiding hot partitions</text>
@@ -562,7 +572,6 @@
           <rect x="158" y="360" width="180" height="30" rx="15" fill="#FFFFFF" stroke="#D7E2C5"/>
           <text x="174" y="379" font-family="'Hanken Grotesk',sans-serif" font-size="12.5" font-weight="500" fill="#6E7D5A">Multi-region writes</text>
 
-          <!-- composed question -->
           <rect x="158" y="404" width="578" height="68" rx="14" fill="#F6E6EE" stroke="#E2BBD0"/>
           <text x="176" y="428" font-family="'Hanken Grotesk',sans-serif" font-size="10.5" font-weight="700" letter-spacing="0.8" fill="#7D4763">YOUR SHARPER QUESTION</text>
           <text x="176" y="452" font-family="'Hanken Grotesk',sans-serif" font-size="15" font-weight="500" fill="#221E18">How do I avoid hot partitions when sharding by tenant_id?</text>
