@@ -13,7 +13,7 @@
 <script>document.documentElement.classList.add('js');</script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 <style>
   :root {
     /* warm, earthy, climate-tech palette */
@@ -37,7 +37,7 @@
     --green-soft:#AFC598;
     --green-tint:#E6EDDA;
 
-    --display: 'Bricolage Grotesque', 'Hanken Grotesk', system-ui, sans-serif;
+    --display: 'Inter', 'Hanken Grotesk', system-ui, sans-serif;
     --body: 'Hanken Grotesk', system-ui, -apple-system, sans-serif;
 
     --radius: 20px;
@@ -98,6 +98,14 @@
   .brand .mark i { position: absolute; top: 0; width: 18px; height: 18px; border-radius: 50%; display: block; }
   .brand .mark i:first-child { left: 0; background: var(--plum-soft); }
   .brand .mark i:last-child { right: 0; background: var(--green-soft); mix-blend-mode: multiply; }
+  /* glossy wordmark: vertical highlight→shadow gloss with a crisp reflection line */
+  .brand-word {
+    font-weight: 700;
+    background: linear-gradient(178deg, #E7B9D1 0%, #C480A6 44%, #B0729A 50%, #7D4763 52%, #95566F 100%);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent; color: transparent;
+    filter: drop-shadow(0 1px 0.5px rgba(125,71,99,0.28));
+  }
   .nav-links { display: flex; align-items: center; gap: 30px; }
   .nav-links a { color: var(--ink-soft); font-size: 15px; font-weight: 500; transition: color .2s; }
   .nav-links a:hover { color: var(--ink); }
@@ -320,7 +328,7 @@
 <header>
   <div class="wrap nav">
     <a href="#top" class="brand" aria-label="Meanwhile home">
-      <span class="mark" aria-hidden="true"><i></i><i></i></span> Meanwhile
+      <span class="mark" aria-hidden="true"><i></i><i></i></span> <span class="brand-word">Meanwhile</span>
     </a>
     <nav class="nav-links" aria-label="Primary">
       <a href="#why">The wait</a>
@@ -455,14 +463,14 @@
             <rect x="48" y="24" width="248" height="64" rx="16" fill="#FFFFFF" stroke="#EAE0CF"/>
             <circle cx="80" cy="56" r="15" fill="#E6EDDA"/>
             <path d="M73 56 l5 5 9 -10" stroke="#566E43" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-            <text x="106" y="51" font-family="'Bricolage Grotesque','Hanken Grotesk',sans-serif" font-size="16" font-weight="700" fill="#221E18">Wait reclaimed</text>
+            <text x="106" y="51" font-family="'Inter','Hanken Grotesk',sans-serif" font-size="16" font-weight="700" fill="#221E18">Wait reclaimed</text>
             <text x="106" y="71" font-family="'Hanken Grotesk',sans-serif" font-size="11" fill="#5E564A">18s → a read + a sharper question</text>
           </g>
           <g class="l-card-b">
             <rect x="652" y="596" width="242" height="64" rx="16" fill="#2c2118" opacity="0.12" filter="url(#soft)"/>
             <rect x="648" y="590" width="242" height="64" rx="16" fill="#FFFFFF" stroke="#EAE0CF"/>
             <circle cx="674" cy="622" r="6" fill="#9C5C7C"/>
-            <text x="690" y="618" font-family="'Bricolage Grotesque','Hanken Grotesk',sans-serif" font-size="15" font-weight="700" fill="#221E18">Follow-up staged</text>
+            <text x="690" y="618" font-family="'Inter','Hanken Grotesk',sans-serif" font-size="15" font-weight="700" fill="#221E18">Follow-up staged</text>
             <text x="690" y="637" font-family="'Hanken Grotesk',sans-serif" font-size="10.5" fill="#5E564A">ready before the answer lands</text>
           </g>
         </svg>
@@ -550,14 +558,14 @@
           <rect x="130" y="40" width="640" height="452" rx="22" fill="#FFFFFF" stroke="#E9E0D0"/>
 
           <circle cx="164" cy="80" r="6.5" fill="#6F8C57"/>
-          <text x="180" y="86" font-family="'Bricolage Grotesque','Hanken Grotesk',sans-serif" font-size="20" font-weight="700" fill="#566E43">Meanwhile</text>
+          <text x="180" y="86" font-family="'Inter','Hanken Grotesk',sans-serif" font-size="20" font-weight="700" fill="#566E43">Meanwhile</text>
           <rect x="606" y="66" width="130" height="28" rx="14" fill="#E6EDDA" stroke="#D7E2C5"/>
           <circle cx="626" cy="80" r="4" fill="#9DB87E"/>
           <text x="638" y="85" font-family="'Hanken Grotesk',sans-serif" font-size="12" font-weight="500" fill="#566E43">on claude.ai</text>
           <rect x="158" y="108" width="578" height="1.5" fill="#EDE4D4"/>
 
           <text x="158" y="136" font-family="'Hanken Grotesk',sans-serif" font-size="11" font-weight="700" letter-spacing="1.4" fill="#7E9466">RELATED READ</text>
-          <text x="158" y="164" font-family="'Bricolage Grotesque','Hanken Grotesk',sans-serif" font-size="19" font-weight="600" fill="#221E18">Range vs. hash sharding — when each wins</text>
+          <text x="158" y="164" font-family="'Inter','Hanken Grotesk',sans-serif" font-size="19" font-weight="600" fill="#221E18">Range vs. hash sharding — when each wins</text>
           <text x="158" y="192" font-family="'Hanken Grotesk',sans-serif" font-size="13.5" fill="#5E564A">Range sharding splits rows by ordered key ranges — great</text>
           <text x="158" y="213" font-family="'Hanken Grotesk',sans-serif" font-size="13.5" fill="#5E564A">for time-series and range scans, but prone to hot spots.</text>
           <text x="158" y="234" font-family="'Hanken Grotesk',sans-serif" font-size="13.5" fill="#5E564A">Hash sharding spreads writes evenly across every node…</text>
