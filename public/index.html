@@ -136,7 +136,7 @@
   .eyebrow .leaf { width: 8px; height: 8px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 0 rgba(111,140,87,0.6); animation: pulse 2.4s infinite; }
   @keyframes pulse { 0%{ box-shadow:0 0 0 0 rgba(111,140,87,0.5);} 70%{ box-shadow:0 0 0 9px rgba(111,140,87,0);} 100%{ box-shadow:0 0 0 0 rgba(111,140,87,0);} }
 
-  h1 { font-size: clamp(46px, 7.6vw, 86px); font-weight: 800; letter-spacing: -0.035em; line-height: 0.98; margin-bottom: 24px; max-width: 14ch; }
+  h1 { font-size: clamp(46px, 7.6vw, 86px); font-weight: 800; letter-spacing: -0.035em; line-height: 0.98; margin-bottom: 24px; }
   /* the whole accent line stays solid plum; only the brand word gets the gloss */
   h1 .accent { color: var(--plum); }
   h1 .gloss-word {
@@ -349,7 +349,7 @@
   <section class="hero" aria-labelledby="hero-h">
     <div class="wrap">
       <span class="eyebrow"><span class="leaf" aria-hidden="true"></span> A latency copilot for everyone who works with AI</span>
-      <h1 id="hero-h">The model is thinking. <span class="accent gloss-word">Meanwhile</span><span class="accent">, you're a step ahead.</span></h1>
+      <h1 id="hero-h">The model is thinking.<br /><span class="gloss-word">Meanwhile</span>,<br />you're a step ahead.</h1>
       <p class="sub">Every prompt opens a gap — a few seconds of spinner while the model thinks. Meanwhile fills it: a focused, related read streams in beside your answer while a sharper follow-up quietly composes itself — so the second your answer lands, your next question is ready to fire.</p>
       <div class="cta-row">
         <a href="#start" class="btn btn-primary">Request early access →</a>
