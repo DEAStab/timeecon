@@ -1,0 +1,5 @@
+# Local wrangler dev state + build output
+.wrangler/
+node_modules/
+.dev.vars
+dist/

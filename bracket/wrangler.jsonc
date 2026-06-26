@@ -1,0 +1,21 @@
+{
+  "name": "wayne-manor-bracket",
+  "main": "src/index.js",
+  "compatibility_date": "2026-06-17",
+  "workers_dev": true,
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS"
+  },
+  "kv_namespaces": [
+    {
+      "binding": "BRACKET_KV",
+      "id": "7ec3e6c33d454b1aa76daf36ef973ba8"
+    }
+  ],
+  "vars": {
+    // The passcode required to edit teams / lock the bracket.
+    // Change this to something only you (the Commissioner) know.
+    "COMMISSIONER_CODE": "wayne-manor"
+  }
+}
