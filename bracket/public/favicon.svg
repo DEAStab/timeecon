@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 210">
+  <rect x="0" y="0" width="240" height="210" rx="46" fill="#ffffff"/>
+  <g transform="translate(0,34)">
+    <g fill="#1f2a8f">
+      <path d="M114,66 C90,52 52,48 8,62 C34,70 40,92 64,98 C72,84 92,74 114,82 Z"/>
+      <path d="M126,66 C150,52 188,48 232,62 C206,70 200,92 176,98 C168,84 148,74 126,82 Z"/>
+    </g>
+    <polyline points="86,104 104,30 120,84 136,30 154,104" fill="none" stroke="#d4d62f" stroke-width="23" stroke-linejoin="miter"/>
+    <polyline points="84,44 104,102 120,58 136,102 156,44" fill="none" stroke="#1f2a8f" stroke-width="20" stroke-linejoin="miter"/>
+    <polygon points="120,58 131,104 120,130 109,104" fill="#1f2a8f"/>
+  </g>
+</svg>

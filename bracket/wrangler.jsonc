@@ -1,0 +1,36 @@
+{
+  // ---------------------------------------------------------------------
+  // Wayne Manor World Cup Bracket — Cloudflare Worker config.
+  // Deploys the bracket app to a FREE *.workers.dev URL (no domain needed)
+  // with Workers KV for shared, persistent storage of everyone's picks.
+  //
+  // FIRST-TIME SETUP (see bracket/README.md for the full walkthrough):
+  //   1. npm install -g wrangler        (or use: npx wrangler ...)
+  //   2. npx wrangler login
+  //   3. npx wrangler kv namespace create BRACKET_KV
+  //      -> copy the printed "id" into the kv_namespaces "id" field below
+  //   4. (optional) change COMMISSIONER_CODE to your own secret
+  //   5. npx wrangler deploy
+  //   -> wrangler prints your shareable link, e.g.
+  //      https://wayne-manor-bracket.<your-subdomain>.workers.dev
+  // ---------------------------------------------------------------------
+  "name": "wayne-manor-bracket",
+  "main": "src/index.js",
+  "compatibility_date": "2026-06-17",
+  "workers_dev": true,
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS"
+  },
+  "kv_namespaces": [
+    {
+      "binding": "BRACKET_KV",
+      "id": "PASTE_YOUR_KV_NAMESPACE_ID_HERE"
+    }
+  ],
+  "vars": {
+    // The passcode required to edit teams / lock the bracket.
+    // Change this to something only you (the Commissioner) know.
+    "COMMISSIONER_CODE": "wayne-manor"
+  }
+}

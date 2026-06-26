@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Wayne Manor — World Cup Bracket Challenge</title>
+<meta name="description" content="The Wayne Manor World Cup bracket challenge — pick every knockout winner from the Round of 32 to the Final and see how the house votes." />
+<meta name="theme-color" content="#07080c" />
+<meta property="og:title" content="Wayne Manor — World Cup Bracket Challenge" />
+<meta property="og:description" content="Pick every knockout winner from the Round of 32 to the Final. See how the house votes." />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<link rel="icon" href="favicon.svg" />
+</head>
+<body>
+
+<!-- Wayne Manor WM crest (navy + gold, winged monogram) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="wm" viewBox="0 0 240 150">
+    <g fill="#1f2a8f">
+      <path d="M114,66 C90,52 52,48 8,62 C34,70 40,92 64,98 C72,84 92,74 114,82 Z"/>
+      <path d="M126,66 C150,52 188,48 232,62 C206,70 200,92 176,98 C168,84 148,74 126,82 Z"/>
+    </g>
+    <polyline points="86,104 104,30 120,84 136,30 154,104" fill="none" stroke="#d4d62f" stroke-width="23" stroke-linejoin="miter"/>
+    <polyline points="84,44 104,102 120,58 136,102 156,44" fill="none" stroke="#1f2a8f" stroke-width="20" stroke-linejoin="miter"/>
+    <polygon points="120,58 131,104 120,130 109,104" fill="#1f2a8f"/>
+  </symbol>
+</svg>
+
+<div class="estate-bat" aria-hidden="true"><svg viewBox="0 0 240 150"><use href="#wm"/></svg></div>
+<canvas id="confetti" aria-hidden="true"></canvas>
+
+<div class="page">
+  <header>
+    <div class="bar">
+      <div class="crest" id="crestBtn" title="Commissioner tools">
+        <span class="emblem"><svg viewBox="0 0 240 150"><use href="#wm"/></svg></span>
+        <span class="titles">
+          <span class="wm">Wayne Manor</span>
+          <span class="sub">⚽ World Cup Bracket Bash 🦇</span>
+        </span>
+      </div>
+      <span class="spacer"></span>
+      <div id="whoami" class="whoami"></div>
+    </div>
+  </header>
+
+  <div class="toolbar">
+    <span class="lead">🔮 Round of 32 → Final</span>
+    <span class="progress">
+      <span class="track"><span id="progressBar"></span></span>
+      <span class="ptxt" id="progressTxt">0 / 31</span>
+    </span>
+    <button class="toggle" id="crowdToggle" aria-pressed="false" title="Show how the house voted">
+      <span class="pip"></span> 👀 Show the crowd
+    </button>
+    <span class="savestate" id="saveState"></span>
+  </div>
+
+  <div class="banner" id="placeholderBanner" hidden>
+    <span>🦇</span>
+    <span><b>Heads up:</b> these are placeholder matchups. Commissioner — tap the crest to load the real Round-of-32 draw.</span>
+  </div>
+
+  <div class="bracket-scroll">
+    <div class="bracket" id="bracket"><!-- built by app.js --></div>
+  </div>
+
+  <footer>
+    <span class="bat-mini">🦇</span> Wayne Manor · est. for glory · may the best prediction win
+  </footer>
+</div>
+
+<!-- ---------- Login / identity modal ---------- -->
+<div class="overlay" id="loginModal" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="loginTitle">
+    <div class="modal-head">
+      <div>
+        <h2 id="loginTitle">Enter Wayne Manor</h2>
+        <p class="lede">Type your name to start your bracket. Already played? Search your name to pick up where you left off — no password needed.</p>
+      </div>
+      <button class="xbtn" id="loginClose" aria-label="Close">×</button>
+    </div>
+    <div class="field">
+      <label for="nameInput">Your name</label>
+      <input class="input" id="nameInput" type="text" autocomplete="off" placeholder="e.g. Bruce W." />
+      <div class="results" id="nameResults"></div>
+    </div>
+    <div class="err" id="loginErr"></div>
+    <div class="actions">
+      <button class="btn gold" id="loginGo">Enter the Manor</button>
+    </div>
+  </div>
+</div>
+
+<!-- ---------- Commissioner modal ---------- -->
+<div class="overlay" id="commModal" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="commTitle" style="max-width:560px">
+    <div class="modal-head">
+      <div>
+        <h2 id="commTitle">Commissioner Tools</h2>
+        <p class="lede">Set the real 32 teams (top→bottom of the bracket) and lock picks once the games begin. Saved to the cloud for everyone.</p>
+      </div>
+      <button class="xbtn" id="commClose" aria-label="Close">×</button>
+    </div>
+    <div class="field">
+      <label for="commCode">Commissioner code</label>
+      <input class="input" id="commCode" type="password" autocomplete="off" placeholder="enter the house code" />
+    </div>
+    <div class="comm-lock">
+      <input type="checkbox" id="commLock" />
+      <label for="commLock" style="margin:0;text-transform:none;letter-spacing:0;font-size:13.5px;color:var(--ink)">Lock the bracket (no more edits — show full results)</label>
+    </div>
+    <div class="comm-grid" id="commGrid"></div>
+    <div class="err" id="commErr"></div>
+    <div class="actions">
+      <button class="btn ghost" id="commReset" title="Reset team list to the shipped default">Reset teams</button>
+      <button class="btn gold" id="commSave">Save to cloud</button>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/dist/twemoji.min.js" crossorigin="anonymous"></script>
+<script src="bracket-data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
